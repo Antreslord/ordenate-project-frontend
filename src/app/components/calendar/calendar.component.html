@@ -1,0 +1,66 @@
+<div class="d-flex position-relative flex-column h-100 w-100 ">
+    <div class="mb-4">
+        <p class="fs-2 p-0 mb-4 border-bottom border-4">Calendario</p>
+    </div>
+    
+    <div class="d-flex h-100 position-relative">
+        <full-calendar class="w-100 h-100" [options]="calendarOptions"></full-calendar>
+    </div>
+    
+    <div *ngIf="windowAddEvents" (click)="windowAddEvents = false" class="d-flex h-100 w-100 position-absolute z-1"></div>
+    <div *ngIf="windowAddEvents" class="d-flex w-50 top-0 bottom-0 start-0 end-0 m-auto position-absolute bg-white border border-5 p-5 z-2" style="height: max-content;">
+        <form class="row g-3">
+            <div class="row mb-3">
+                <label for="validationServer01" class="form-label">Titulo</label>
+                <input type="text" name="titleEvent" class="form-control" id="title" [(ngModel)]="title"
+                    required>
+            </div>
+    
+            <div class="row mb-3">
+                <div class="col" *ngIf="isAllDay">
+                    <label for="validationServer02" class="form-label">Fecha</label>
+                    <input type="date" name="dateEvent" class="form-control" id="dateCalendar" [(ngModel)]="date" required>
+                </div>
+                
+                <div class="col mb-3" *ngIf="!isAllDay">
+                    <label for="validationServer02" class="form-label">Fecha</label>
+                    <input type="datetime-local" name="dateEvent" class="form-control" id="dateCalendar" [(ngModel)]="date" required>
+                </div>
+    
+                <div class="col align-self-center mt-4">
+                    <div class="form-check">
+                        <input class="form-check-input is-invalid" name="isAllDay" type="checkbox"
+                            [(ngModel)]="isAllDay" id="isAllDay" aria-describedby="invalidCheck3Feedback"
+                            required>
+                        <label class="form-check-label text-center" for="invalidCheck3">
+                            Todo el dia.
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            
+    
+    
+            <div class="row">
+                <label for="validationServer04" class="form-label">Estado</label>
+                <select class="form-select" name="stateEvent" id="validationServer04"
+                    aria-describedby="validationServer04Feedback" required>
+                    <option selected disabled value="">Elige una opción</option>
+                    <option>Sin empezar</option>
+                    <option>Incompleto</option>
+                    <option>Terminado</option>
+                    <option>Abandonado</option>
+                </select>
+            </div>
+    
+            <div class="col-12">
+                <button (click)="addEvent()" class="btn btn-primary" type="button">Guardar</button>
+            </div>
+        </form>
+    </div>
+    
+</div>
+
+
+

@@ -1,0 +1,34 @@
+@keyframes bounce {
+    from{
+        bottom: -50px;
+        color: transparent;
+    }
+    to{
+        bottom: 0;
+        color: black;
+    }
+}
+
+
+.create-project{
+    cursor: pointer;
+    background-color: #dc3545;
+}
+
+.create-project:hover > .boton-create-project{
+    animation-name: bounce;
+    animation-duration: .5s;
+    color: black;
+}
+
+.create-project:hover{
+    background-color: #e25865;
+}
+
+.create-project:hover > i{
+    filter: opacity(0.2);
+}
+
+.boton-create-project {
+    color:transparent;
+}

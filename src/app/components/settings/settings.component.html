@@ -1,0 +1,129 @@
+<div class="w-100">
+    <div class="d-flex flex-column mb-5"> 
+        <div class="mb-4">
+            <p class="fs-2 p-0 m-0 border-bottom border-4">Mi Perfil</p>
+        </div>
+        <!-- Mi Perfil / My profile -->
+        <div class="d-flex ps-5 flex-column w-100 border border-4 pb-4">
+            <div class="d-flex w-100 align-items-center mb-4" style="height: 200px;">
+                <img class="d-inline rounded-circle me-5" style="width: 150px;height: 150px;" src="../../../assets/IMGS/blank-profile-picture-973460_640.png" alt="user-image">
+                <div class="m-0 p-0 d-flex flex-column justify-content-center">
+                    <p class="m-0 p-0 fs-5 fw-bold">Cristian Camilo Delgado Amaya</p>
+                    <p class="m-0 p-0 fs-6">Ingeniero en Software</p>
+                </div>
+                <i class="fa-regular fa-pen-to-square fs-5 me-5 ms-auto p-2 cursor-setting"></i>
+            </div>
+            <div class="d-flex flex-column w-100 mb-4">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                        <p class="m-0 p-0" style="font-size: 15px;">Correo Electrónico</p>
+                        <p class="m-0 p-0 fw-bold">correoinventado@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex flex-column w-100">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                        <p class="m-0 p-0" style="font-size: 15px;">Contraseña</p>
+                        <p class="m-0 p-0">Establece una contraseña para acceder a la cuenta</p>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input me-5 cursor-setting" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Apariencia / Aparence -->
+    <div class="d-flex flex-column mb-5">
+        <div class="mb-4">
+            <p class="fs-2 p-0 m-0 border-bottom border-4">Apariencia</p>
+        </div>
+
+        <div class="d-flex ps-5 flex-column w-100 border border-4 py-4">
+            <div class="d-flex flex-column w-100">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                        <p class="m-0 p-0">Cambiar a tema oscuro</p>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input [checked]="theme" (click)="sendTheme()" class="form-check-input me-5 cursor-setting" type="checkbox" role="switch" id="dark-theme">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Miembros / members -->
+    <div class="d-flex flex-column mb-5">
+        <div class="mb-4">
+            <p class="fs-2 p-0 m-0 border-bottom border-4">Miembros</p>
+        </div>
+
+        <div class="d-flex ps-5 flex-column w-100 border border-4 py-4">
+
+            <!-- MENU NAVBAR MIEMBROS Y EQUIPOS DE TRABAJO -->
+            <div class="nav-members-options mb-5">
+                <ul class="nav nav-pills nav-fill">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Participantes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Grupos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Invitados</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- MENU USUARIOS -->
+
+            <div class="container text-center">
+                <!-- TITULOS -->
+                <div class="row border-bottom border-3 mb-4">
+                    <div class="col">
+                        Usuario
+                    </div>
+                    <div class="col">
+                        Proyecto
+                    </div>
+                </div>
+
+                <!-- NOMBRES, FOTO Y GRUPO -->
+                <div class="row">
+                    <div class="col">
+                        <img class="d-inline photo-user d-inline me-3 rounded-circle" style="width: 50px;height: 50px; cursor: pointer;" src="../../../assets/IMGS/blank-profile-picture-973460_640.png" alt="user-profile">
+                        <p class="d-inline ">Juan Calderon</p>
+                    </div>
+                    <div class="col">
+                        Proyecto
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- Sesión -->
+    <div class="d-flex flex-column mb-5">
+        <div class="mb-4">
+            <p class="fs-2 p-0 m-0 border-bottom border-4">Sesión</p>
+        </div>
+        <div class="d-flex ps-5 flex-column w-100 border border-4 py-4 pe-5">
+            <div class="d-flex flex-column align-items-start justify-content-center">
+                <div class="d-flex w-100 justify-content-between mb-2">
+                    <p (click)="logOut()" class="m-0 p-0 cursor-setting">Cerrar Sesión</p>
+                    <i (click)="logOut()" class="fa-solid fa-arrow-right-to-bracket text-center m-0 p-0 cursor-setting"></i>
+                </div>
+                <div class="d-flex w-100 justify-content-between">
+                    <p class="m-0 p-0 cursor-setting">Cambiar de Cuenta</p>
+                    <i class="fa-solid fa-arrow-right-to-bracket text-center m-0 p-0 cursor-setting"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

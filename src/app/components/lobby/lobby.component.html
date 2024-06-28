@@ -1,0 +1,76 @@
+<main  class="d-flex justify-content-center position-relative">
+
+    <app-login *ngIf="clickLogin"  class="z-2 position-fixed" style="margin-top: 4rem;"></app-login>     
+
+
+    <section  class="d-flex flex-column border border-primary border-5 z-0 position-absolute" style="width: 90%;">
+
+        <div class="d-flex justify-content-end mb-5 border border-primary border-5 ">
+            <button class="btn btn-primary" (click)="showLogin()">Iniciar sesión</button>
+        </div>
+
+        <article (click)="hiddenLoging()" class="border border-primary border-5 ">
+            <div class="d-flex align-items-center flex-column">
+                <h2 class="text-center">Pon ORDEN a tus proyectos</h2>
+                <!-- img -->
+                <img class="" style="height: 400px; width: 700px;" src="https://cdn.pixabay.com/photo/2018/03/01/05/46/business-3189797_640.png" alt="img">
+            </div>
+
+            <div class="border border-secondary border-3">
+                <!-- img -->
+                <p class="border border-primary border-3">Personaliza tu area de trabajo según tus proyectos</p>
+                <p class="border border-primary border-3">Para que sea mas agradable tu experiencia con nosotros, elige que tipo de proyectos vas a realizar y nosotros lo personalizaremos para ti</p>
+            </div>
+
+            <div>
+                <p>Reúnete con tu equipo de trabajo para desarrollar tus proyectos</p>
+                <p>Crea tu proyecto y como administrador decide quienes pueden ser parte de tu equipo</p>
+                <!-- img -->
+            </div>
+
+            <div>
+                <div>
+                    <!-- img -->
+                    <p>Calendario</p>
+                    <p>Organiza y programa las actividades por realizar en tus proyectos con ayuda del calendario personal</p>
+                </div>
+                <div>
+                    <!-- img -->
+                    <p>Recordatorio de Actividades</p>
+                    <p>Siempre te estará recordando cuales son las actividades faltantes o retrasadas que tienes para que puedas cumplir con tus proyectos</p>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <div>
+                        <p>Personalización</p>
+                        <p>Cambia la apariencia de tu entorno para mas comodidad</p>
+                    </div>
+                    <div>
+                        <p>Seguridad</p>
+                        <p>Pon filtros de seguridad a tu proyecto para que solo tu y tu equipo trabajen en el proyecto</p>
+                    </div>
+                    <div>
+                        <p>Edita tus tareas y proyectos</p>
+                        <p>Editas los roles, tareas o eventos cambiando los estados o simplemente eliminándolos</p>
+                    </div>
+                </div>
+                <div>
+                    <!-- img -->
+                </div>
+            </div>
+
+            <div>
+                <p>Bienvenido a Orden</p>
+                <!-- img -->
+            </div>
+        </article>
+        
+
+    </section>
+
+</main>
+
+
+

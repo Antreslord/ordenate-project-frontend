@@ -1,0 +1,80 @@
+<div class="w-100">
+    <div class="d-flex flex-column mb-5">
+        <div class="mmb-4">
+            <p class="fs-2 p-0 mb-4 border-bottom border-4">Mis Equipos de Trabajo</p>
+        </div>
+        <div class="d-flex ps-4 flex-column border border-5 d-flex w-100">
+            <div class="p-0 my-4">
+
+              <div (click)="projects= true" [ngClass]="{'border-bottom border-3 border-secondary pb-2': projects}" class="cursor-pointer d-inline me-5">
+                <p class="pb-2 d-inline fs-5">Mis proyectos</p>
+              </div>
+              <div (click)="projects = false" [ngClass]="{'border-bottom border-3 border-secondary pb-2': !projects}" class="cursor-pointer d-inline me-5">
+                <p class="pb-2 m-0 d-inline fs-5">Personas</p>
+              </div>
+            
+            </div>
+            
+            <div *ngIf="projects">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Nombre del proyecto</th>
+                        <th scope="col">Rol desempeñado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td scope="row">Arkham</td>
+                        <td>Lider</td>
+                        <td><i class="cursor-pointer fa-regular fa-comments me-3"></i><i class="cursor-pointer fa-solid fa-right-from-bracket me-3"></i><i class="cursor-pointer fa-solid fa-trash me-3"></i></td>
+                      </tr>
+                      <tr>
+                        <td scope="row">Metropolis</td>
+                        <td>Colaborador</td>
+                        <td><i class="cursor-pointer fa-regular fa-comments me-3"></i><i class="cursor-pointer fa-solid fa-right-from-bracket me-3"></i><i class="cursor-pointer fa-solid fa-trash me-3"></i></td>
+                      </tr>
+                      <tr>
+                        <td scope="row">Atalaya</td>
+                        <td>Colaborador</td>
+                        <td><i class="cursor-pointer fa-regular fa-comments me-3"></i><i class="cursor-pointer fa-solid fa-right-from-bracket me-3"></i><i class="cursor-pointer fa-solid fa-trash me-3"></i></td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+
+            <div *ngIf="!projects">
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Nombre del participante</th>
+                      <th scope="col">Equipo del equipo</th>
+                      <th scope="col">Rol desempeñado</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td scope="row">Bruce</td>
+                      <td>Arkham</td>
+                      <td>Líder</td>
+                      <td><i class="cursor-pointer fa-regular fa-comments me-3"></i><i class="cursor-pointer fa-solid fa-trash me-3"></i></td>
+                    </tr>
+                    <tr>
+                      <td scope="row">Clarke</td>
+                      <td>Metropolis</td>
+                      <td>Colaborador</td>
+                      <td><i class="cursor-pointer fa-regular fa-comments me-3"></i><i class="cursor-pointer fa-solid fa-trash me-3"></i></td>
+                    </tr>
+                    <tr>
+                      <td scope="row">Todos</td>
+                      <td>Atalaya</td>
+                      <td>Colaborador</td>
+                      <td><i class="cursor-pointer fa-regular fa-comments me-3"></i><i class="cursor-pointer fa-solid fa-trash me-3"></i></td>
+                    </tr>
+                  </tbody>
+              </table>
+          </div>
+        </div>
+    </div>
+</div>

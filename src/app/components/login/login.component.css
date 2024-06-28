@@ -1,0 +1,12 @@
+.b-others:hover{
+    background-color: rgb(226, 226, 226);
+    cursor:
+     pointer;
+     transition: all .3s
+}
+
+.b-google:hover{
+    background-color: rgb(226, 226, 226);
+    cursor: pointer;
+    transition: all .3s;
+}
