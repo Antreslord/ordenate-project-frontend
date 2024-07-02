@@ -35,4 +35,8 @@ export class DashboardComponent {
   goToCalendar(){
     this.router.navigate(['dashboard/calendar'])
   }
+
+  goToTrash(){
+    this.router.navigate(['dashboard/trash'])
+  }
 }

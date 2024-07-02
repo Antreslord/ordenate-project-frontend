@@ -19,12 +19,12 @@
             <div class="row mb-3">
                 <div class="col" *ngIf="isAllDay">
                     <label for="validationServer02" class="form-label">Fecha</label>
-                    <input type="date" name="dateEvent" class="form-control" id="dateCalendar" [(ngModel)]="date" required>
+                    <input type="date" name="startDate" class="form-control" id="startDate" [(ngModel)]="date" required>
                 </div>
                 
                 <div class="col mb-3" *ngIf="!isAllDay">
                     <label for="validationServer02" class="form-label">Fecha</label>
-                    <input type="datetime-local" name="dateEvent" class="form-control" id="dateCalendar" [(ngModel)]="date" required>
+                    <input type="datetime-local" name="date-time" class="form-control" id="date-time" [(ngModel)]="date" required>
                 </div>
     
                 <div class="col align-self-center mt-4">
@@ -39,18 +39,21 @@
                 </div>
             </div>
 
-            
+            <div *ngIf="isAllDay" class="row mb-3">
+                <div class="col mb-3">
+                    <label for="validationServer02" class="form-label">Fin</label>
+                    <input type="date" name="dateEvent" class="form-control" id="endDate" [(ngModel)]="end" required>
+                </div>
+            </div>
     
     
             <div class="row">
                 <label for="validationServer04" class="form-label">Estado</label>
-                <select class="form-select" name="stateEvent" id="validationServer04"
-                    aria-describedby="validationServer04Feedback" required>
-                    <option selected disabled value="">Elige una opción</option>
-                    <option>Sin empezar</option>
-                    <option>Incompleto</option>
-                    <option>Terminado</option>
-                    <option>Abandonado</option>
+                <select [(ngModel)]="priority" class="form-select" name="stateEvent" id="validationServer04"aria-describedby="validationServer04Feedback" required>
+                    <option selected value="#3266c8">Sin empezar</option>
+                    <option value="#ff6232">Incompleto</option>
+                    <option value="#62cb32">Terminado</option>
+                    <option value="grey">Abandonado</option>
                 </select>
             </div>
     

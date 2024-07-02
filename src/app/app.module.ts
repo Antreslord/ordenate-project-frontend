@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { WorkTeamsComponent } from './components/work-teams/work-teams.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { TrashComponent } from './components/trash/trash.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     NameProjectComponent,
     SettingsComponent,
     WorkTeamsComponent,
-    CalendarComponent
+    CalendarComponent,
+    TrashComponent
   ],
   imports: [
     BrowserModule,

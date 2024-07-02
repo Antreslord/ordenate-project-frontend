@@ -18,11 +18,13 @@ export class CalendarComponent {
   title:string = ''
   date:any = ''
   isAllDay:boolean = false
+  end:any = ''
+  priority:string = ''
 
   eventsCalendar:any = [
     { title: 'event 1', date: '2024-06-21', allDay:true, backgroundColor:'blue', start:'2024-06-20', end:'2024-06-22' },
     { title: 'event 2', date: '2024-06-19', allDay:false, backgroundColor:'green' },
-    //{ title: 'event 3', date: '2024-06-25T12:30:00', allDay:false, backgroundColor:'green' },
+    
 
 
     //{ title: 'event 3', daysOfWeek: [1,2] }
@@ -44,6 +46,8 @@ export class CalendarComponent {
 
     selectable:true,
 
+    selectMirror: true,
+
     events: this.eventsCalendar,
 
     //mostrar fines de semana = daygrid
@@ -58,11 +62,13 @@ export class CalendarComponent {
     this.windowAddEvents = true
     this.title = 'titulo'
     this.date = arg.dateStr
-    this.isAllDay = false
+    this.end = arg.dateStr
+    this.isAllDay = true
+    this.priority = ''
   }
 
   addEvent(){
-    const newEvent:eventCalendar = { title: this.title, date: this.date, isAllDay: this.isAllDay, backgroundColor:'green'};
+    const newEvent:eventCalendar = { title: this.title, date: this.date, start:this.date, end: this.end, isAllDay: this.isAllDay, backgroundColor:this.priority};
 
     this.eventsCalendar = [...this.eventsCalendar, newEvent ];
     

@@ -8,6 +8,7 @@ import { NameProjectComponent } from './components/name-project/name-project.com
 import { SettingsComponent } from './components/settings/settings.component';
 import { WorkTeamsComponent } from './components/work-teams/work-teams.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
+import { TrashComponent } from './components/trash/trash.component';
 
 const routes: Routes = [
   { path:'', component:LobbyComponent },
@@ -19,7 +20,8 @@ const routes: Routes = [
       { path:'projects', component:ProjectComponent },
       { path:'settings', component:SettingsComponent },
       { path:'workTeams', component:WorkTeamsComponent },
-      { path:'calendar',component:CalendarComponent }
+      { path:'calendar',component:CalendarComponent },
+      { path:'trash', component:TrashComponent }
       
     ]
   
