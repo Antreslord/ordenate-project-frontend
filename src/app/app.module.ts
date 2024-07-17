@@ -14,6 +14,7 @@ import { WorkTeamsComponent } from './components/work-teams/work-teams.component
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { TrashComponent } from './components/trash/trash.component';
+import { ProjectAreaComponent } from './components/project-area/project-area.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TrashComponent } from './components/trash/trash.component';
     SettingsComponent,
     WorkTeamsComponent,
     CalendarComponent,
-    TrashComponent
+    TrashComponent,
+    ProjectAreaComponent
   ],
   imports: [
     BrowserModule,
