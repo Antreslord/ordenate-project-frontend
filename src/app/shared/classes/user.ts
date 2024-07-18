@@ -13,8 +13,11 @@ export class User{
         this.name = name;
         this.profession = profession;
         this.email = email;
-        this.password = password
-        this.photoUser = photoUser
+        if(password && photoUser){
+            this.password = password
+            this.photoUser = photoUser
+        }
+        
     }
 
     //-------- METHODS --------
