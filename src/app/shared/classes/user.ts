@@ -22,12 +22,20 @@ export class User{
 
     //-------- METHODS --------
 
-    public createProject(){
+    createProject(){
 
     }
 
-    public deleteProject(project:any){
+    deleteProject(project:any){
 
+    }
+
+    updateUser(id:number, user:User){
+
+    }
+
+    saveUser(){
+        
     }
 
     //-------- GETTERS and SETTERS -------
