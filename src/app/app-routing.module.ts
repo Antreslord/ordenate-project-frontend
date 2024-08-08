@@ -17,9 +17,9 @@ const routes: Routes = [
   { path:'dashboard', component:DashboardComponent,
     
     children:[
-      { path:'projects', component:ProjectComponent },
-      { path:'settings', component:SettingsComponent },
-      { path:'workTeams', component:WorkTeamsComponent },
+      { path:'project', component:ProjectComponent },
+      { path:'setting', component:SettingsComponent },
+      { path:'workTeam', component:WorkTeamsComponent },
       { path:'calendar',component:CalendarComponent },
       { path:'trash', component:TrashComponent }
       

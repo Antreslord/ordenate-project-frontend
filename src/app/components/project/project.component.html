@@ -13,8 +13,29 @@
                 <!-- Proyectos Recientes -->
                 
             </div>
-            <div class="ps-4">
+            <div *ngIf="listProjects.length == 0" class="ps-4">
                 <p>No tienes proyectos aún</p>
+            </div>
+            <div>
+                <table *ngIf="listProjects.length > 0" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Titulo</th>
+                            <th scope="col">Analisis</th>
+                            <th scope="col">Numero de Actividades</th>
+                            <th scope="col">Fecha de Creacion</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let project of listProjects">
+                            <td>{{project.getTitle}}</td>
+                            <td>{{project.getAnalysis}}</td>
+                            <td>{{project.getNumberActivities}}</td>
+                            <td>{{project.getDateCreation}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
@@ -23,3 +44,8 @@
     
 </div>
 
+
+<!-- <td>
+    <button [routerLink]="['/edit', product.id]" type="button" class="btn btn-primary btn-sm mr-2">Edit</button>
+    <button (click)="deleteProduct(product.id!)" type="button" class="btn btn-primary btn-sm">Delete</button>
+</td> -->

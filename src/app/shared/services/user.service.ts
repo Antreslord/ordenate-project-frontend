@@ -8,14 +8,14 @@ import { User } from '../classes/user';
   providedIn: 'root'
 })
 
-export class UserService {
+export class _UserService {
 
   private myAppUrl:string;
   private myApiUrl:string;
 
   constructor(private http:HttpClient) { 
     this.myAppUrl = environment.endpoint;
-    this.myApiUrl = 'api/users/';
+    this.myApiUrl = 'api/user/';
   }
 
   getListUsers():Observable<User[]>{
