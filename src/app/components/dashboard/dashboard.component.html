@@ -19,13 +19,13 @@
 
             </ul>
         </div>
-        <div class="projects d-flex my-3 p-0">
-            <ul class="list-group list-group-flush" style="font-size: 13px;">
-                <li [ngClass]="{'bg-dark text-light': theme}" class="list-group-item"><i class="fa-solid fa-briefcase me-2"></i>Proyecto 1</li>
-                <li [ngClass]="{'bg-dark text-light': theme}" class="list-group-item"><i class="fa-solid fa-briefcase me-2"></i>Proyecto 2</li>
-                <li [ngClass]="{'bg-dark text-light': theme}" class="list-group-item"><i class="fa-solid fa-briefcase me-2"></i>Proyecto 3</li>
-                <li [ngClass]="{'bg-dark text-light': theme}" class="list-group-item"><i class="fa-solid fa-briefcase me-2"></i>Proyecto 4</li>
-                <li [ngClass]="{'bg-dark text-light': theme}" class="list-group-item"><i class="fa-solid fa-briefcase me-2"></i>Proyecto 5</li>
+        <div class="projects d-flex my-3 p-0 border">
+            <ul class="list-group list-group-flush w-100" style="font-size: 13px;">
+                <li [ngClass]="{'bg-dark text-light': theme}" (click)="goToProject()" class="list-group-item"><i class="fa-solid fa-briefcase me-2"></i>Proyecto 1</li>
+                <li [ngClass]="{'bg-dark text-light': theme}" (click)="goToProject()" class="list-group-item"><i class="fa-solid fa-briefcase me-2"></i>Proyecto 2</li>
+                <li [ngClass]="{'bg-dark text-light': theme}" (click)="goToProject()" class="list-group-item"><i class="fa-solid fa-briefcase me-2"></i>Proyecto 3</li>
+                <li [ngClass]="{'bg-dark text-light': theme}" (click)="goToProject()" class="list-group-item"><i class="fa-solid fa-briefcase me-2"></i>Proyecto 4</li>
+                <li [ngClass]="{'bg-dark text-light': theme}" (click)="goToProject()" class="list-group-item"><i class="fa-solid fa-briefcase me-2"></i>Proyecto 5</li>
 
             </ul>
         </div>

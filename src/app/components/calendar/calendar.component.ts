@@ -3,7 +3,7 @@ import { CalendarOptions, Calendar } from '@fullcalendar/core';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import { eventCalendar } from 'src/app/interfaces/eventsCalendar';
+import { eventCalendar } from 'src/app/shared/interfaces/eventsCalendar';
 
 
 @Component({

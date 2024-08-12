@@ -25,11 +25,11 @@ export class DashboardComponent {
   private subscriptionThemeSettings: Subscription
 
   goToSettings(){
-    this.router.navigate(['dashboard/settings'])
+    this.router.navigate(['dashboard/setting'])
   }
 
   goToWorkTeams(){
-    this.router.navigate(['dashboard/workTeams'])
+    this.router.navigate(['dashboard/workTeam'])
   }
 
   goToCalendar(){
@@ -38,5 +38,9 @@ export class DashboardComponent {
 
   goToTrash(){
     this.router.navigate(['dashboard/trash'])
+  }
+
+  goToProject(){
+    this.router.navigate(['dashboard/project-area'])
   }
 }

@@ -1,65 +1,77 @@
 import { User } from "./user";
 
 export class Project{
-    private id: string;
+    private id: number;
     private title: string;
-    private dateCreation:Date;
+    private date_creation:Date;
     private analysis:string;
-    private numberActivities:number = 0;
+    private number_activities?:number;
+    private id_user: number
 
-    constructor(id:string, title:string, dateCreation:Date, analysis:string, numberActivities:number){
+    constructor(id:number, title:string, dateCreation:Date, analysis:string, numberActivities:number, id_user:number){
         this.id = id;
         this.title = title;
-        this.dateCreation = dateCreation;
+        this.date_creation = dateCreation;
         this.analysis = analysis;
-        this.numberActivities = numberActivities
+        this.number_activities = numberActivities;
+        this.id_user = id_user
     }
 
+    
     //-------- METHODS -------- 
     
-    public addMember(member:User){
+    addMember(member:User){
 
     }
 
-    public addManager(member:User){
+    addManager(member:User){
 
     }
 
-    public createActivity(){
+    createActivity(){
         
     }
 
 
+    
     //-------- GETTERS and SETTERS --------
-    public get getId(): string {
+    get getId(){
         return this.id;
     }
-    public get getTitle(): string {
+    get getTitle(){
         return this.title;
     }
-    public get getDateCreation():Date{
-        return this.dateCreation
+    get getDateCreation(){
+        return this.date_creation
     } 
-    public get getAnalysis():string{
+    get getAnalysis(){
         return this.analysis;
     }
-    public get getNumberActivities():number{
-        return this.numberActivities;
+    get getNumberActivities(){
+        return this.number_activities;
+    }
+    get getIdUser(){
+        return this.id_user
     }
     
-    public set setId(id: string) {
+    set setId(id: number) {
         this.id = id;
     }
-    public set setTitle(title: string) {
+    set setTitle(title: string) {
         this.title = title;
     }
-    public set setDateCreation(date:Date){
-        this.dateCreation = date;
+    set setDateCreation(date:Date){
+        this.date_creation = date;
     }
-    public set setAnalysis(analysis:string){
+    set setAnalysis(analysis:string){
         this.analysis = analysis;
     }
-    public set setNumberActivities(number:number){
-        this.numberActivities = number;
+    set setNumberActivities(number:number){
+        this.number_activities = number;
     }
+    set setIdUser(id:number){
+        this.id_user = id
+    }
+    
+
 }

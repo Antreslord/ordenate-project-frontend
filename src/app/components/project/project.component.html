@@ -7,16 +7,29 @@
     </div>
     <div class="ps-4 w-100 ">
         <div class="my-5">
-            <p class="fs-4 fw-medium">Tus proyectos recientes</p>
+            <p class="fs-4 fw-medium">Hola Cristian</p>
             <div class="ps-4">    
                 
                 <!-- Proyectos Recientes -->
                 
             </div>
-            <div *ngIf="listProjects.length == 0" class="ps-4">
+            <div>
+                <div *ngIf="listProjects.length == 0" class="ps-4">
                 <p>No tienes proyectos aún</p>
             </div>
-            <div>
+
+            <div *ngIf="listProjects.length > 0" class="d-flex flex-wrap justify-content-center w-100 h-100 border boder-3 border-primary">
+                <div *ngFor="let project of listProjects" class="card text-center mx-3 my-3" style="width: 18rem;height: 10rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{project.title}}</h5>
+                        <p class="card-text">{{project.analysis}}</p>
+                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- <div>
                 <table *ngIf="listProjects.length > 0" class="table table-hover">
                     <thead>
                         <tr>
@@ -29,23 +42,18 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let project of listProjects">
-                            <td>{{project.getTitle}}</td>
-                            <td>{{project.getAnalysis}}</td>
-                            <td>{{project.getNumberActivities}}</td>
-                            <td>{{project.getDateCreation}}</td>
+                            <td>{{project.title}}</td>
+                            <td>{{project.analysis}}</td>
+                            <td>{{project.number_activities}}</td>
+                            <td>{{project.date_creation}}</td>
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div> -->
+
         </div>
 
     </div>
     
     
 </div>
-
-
-<!-- <td>
-    <button [routerLink]="['/edit', product.id]" type="button" class="btn btn-primary btn-sm mr-2">Edit</button>
-    <button (click)="deleteProduct(product.id!)" type="button" class="btn btn-primary btn-sm">Delete</button>
-</td> -->

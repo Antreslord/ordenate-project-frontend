@@ -9,6 +9,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { WorkTeamsComponent } from './components/work-teams/work-teams.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { TrashComponent } from './components/trash/trash.component';
+import { ProjectAreaComponent } from './components/project-area/project-area.component';
 
 const routes: Routes = [
   { path:'', component:LobbyComponent },
@@ -17,12 +18,12 @@ const routes: Routes = [
   { path:'dashboard', component:DashboardComponent,
     
     children:[
-      { path:'project', component:ProjectComponent },
+      { path:'projects', component:ProjectComponent },
       { path:'setting', component:SettingsComponent },
       { path:'workTeam', component:WorkTeamsComponent },
       { path:'calendar',component:CalendarComponent },
-      { path:'trash', component:TrashComponent }
-      
+      { path:'trash', component:TrashComponent },
+      { path:'project-area', component:ProjectAreaComponent }
     ]
   
   }
