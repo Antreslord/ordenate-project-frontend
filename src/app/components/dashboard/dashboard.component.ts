@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Project } from 'src/app/shared/interfaces/project';
-import { ObservablesConnectionService } from 'src/app/shared/services/observables-connection.service';
+import { _ObservablesConnectionService } from 'src/app/shared/services/observables-connection.service';
 import { _ProjectService } from 'src/app/shared/services/project.service';
 
 @Component({
@@ -13,8 +13,9 @@ import { _ProjectService } from 'src/app/shared/services/project.service';
 export class DashboardComponent {
 
   listProjects:Project[] = []
-
-  constructor(private router:Router, private connectionObservable: ObservablesConnectionService, private _projectService:_ProjectService){
+  private subscriptionThemeSettings: Subscription
+  
+  constructor(private router:Router, private connectionObservable: _ObservablesConnectionService, private _projectService:_ProjectService){
     this.subscriptionThemeSettings = this.connectionObservable.getBoolean().subscribe((dataBoolean)=>{
       this.theme = dataBoolean;
     })
@@ -34,7 +35,7 @@ export class DashboardComponent {
     })
   }  
 
-  private subscriptionThemeSettings: Subscription
+
 
   goToSettings(){
     this.router.navigate(['dashboard/setting'])

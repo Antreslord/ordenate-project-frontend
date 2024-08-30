@@ -1,0 +1,76 @@
+<div class="d-flex bg-white flex-column py-4 px-3 border border-5" >
+    <div class="text-center mb-3" style="font-size: small;">
+        <p class="m-0 p-0 fw-bold">Principales</p>
+    </div>
+    <div class="d-flex justify-content-evenly mb-3" style="width: max-content;font-size: small;">
+        <div class="d-flex w-50">
+            <ul class="p-0" style="width: 112px;list-style-type: none;">
+                <li (click)="itemChose('date')" class="mb-2 w-100 cursor-pointer">
+                    <i class="fa-regular fa-calendar d-inline" style="color: #716d7e;"></i>
+                    <p class="p-0 my-0 mx-2 d-inline">Fecha</p>
+                </li>
+                <li (click)="itemChose('schedule')" class="mb-2 w-100 cursor-pointer">
+                    <i class="fa-regular fa-calendar-days d-inline" style="color: #464aa4;"></i>
+                    <p class="p-0 my-0 mx-2 d-inline">Cronograma</p>
+                </li>
+                <li (click)="itemChose('number')" class="mb-2 w-100 cursor-pointer">
+                    <i class="fa-solid fa-hashtag d-inline" style="color: #51c149;"></i>
+                    <p class="p-0 my-0 mx-2 d-inline">Numeros</p>
+                </li>
+            </ul>
+        </div>
+        <div class="d-flex w-50">
+            <ul class="p-0" style="width: 112px;list-style-type: none;">
+                <li (click)="itemChose('state')" class="mb-2 w-100 cursor-pointer">
+                    <i class="fa-solid fa-sign-hanging d-inline" style="color: #b46487;"></i>
+                    <p class="p-0 my-0 mx-2 d-inline">Estado</p>
+                </li>
+                <li (click)="itemChose('priority')" class="mb-2 w-100 cursor-pointer">
+                    <i class="fa-solid fa-triangle-exclamation d-inline" style="color: #FFD43B;"></i>
+                    <p class="p-0 my-0 mx-2 d-inline">Prioridad</p>
+                </li>
+                <li (click)="itemChose('label')" class="mb-2 w-100 cursor-pointer">
+                    <i class="fa-solid fa-tag d-inline" style="color: #74C0FC;"></i>
+                    <p class="p-0 my-0 mx-2 d-inline">Etiqueta</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="text-center mb-3" style="font-size: small;">
+        <p class="m-0 p-0 fw-bold">Complementarios</p>
+    </div>
+    <div class="d-flex justify-content-evenly" style="width: max-content;font-size: small;">
+        <div class="d-flex w-50">
+            <ul class="p-0" style="width: 112px;list-style-type: none;">
+                <li (click)="itemChose('text')" class="mb-2 w-100 cursor-pointer">
+                    <i class="fa-solid fa-font"></i>
+                    <p class="p-0 my-0 mx-2 d-inline">Texto</p>
+                </li>
+                <li (click)="itemChose('docs')" class="mb-2 w-100 cursor-pointer">
+                    <i class="fa-regular fa-file-pdf" style="color: #0752d5;"></i>
+                    <p class="p-0 my-0 mx-2 d-inline">Archivo</p>
+                </li>
+                <li (click)="itemChose('url')" class="w-100 cursor-pointer">
+                    <i class="fa-solid fa-link" style="color: #b04579;"></i>
+                    <p class="p-0 my-0 mx-2 d-inline">Enlace</p>
+                </li>
+            </ul>
+        </div>
+        <div class="d-flex w-50">
+            <ul class="p-0" style="width: 112px;list-style-type: none;">
+                <li (click)="itemChose('responsibleSuject')" class="mb-2 w-100 cursor-pointer">
+                    <i class="fa-regular fa-user" style="color: #FFD43B;"></i>
+                    <p class="p-0 my-0 mx-2 d-inline">Responsable</p>
+                </li>
+                <li (click)="itemChose('selectable')" class="mb-2 w-100 cursor-pointer">
+                    <i class="fa-regular fa-square-check" style="color: #25a23a;"></i>
+                    <p class="p-0 my-0 mx-2 d-inline">Seleccion</p>
+                </li>
+                <li (click)="itemChose('relationship')" class=" w-100 cursor-pointer">
+                    <i class="fa-solid fa-up-right-from-square"></i>
+                    <p class="p-0 my-0 mx-2 d-inline">Relacion</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

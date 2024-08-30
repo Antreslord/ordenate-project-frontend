@@ -6,3 +6,13 @@
 .cursor-pointer:hover{
     opacity: 0.5
 }
+
+.truncate-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.text-nowrap{
+    white-space: nowrap;
+}

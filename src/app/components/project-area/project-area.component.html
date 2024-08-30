@@ -1,1 +1,59 @@
-<h1>Nombre del proyecto</h1>
+<div class="d-flex flex-column h-100 align-items-center justify-conotent-center position-relative">
+    <div *ngIf="menuItemsActive" class="w-100 h-100 position-absolute z-1 d-flex justify-content-center align-items-center">
+        <div (click)="menuItemsActive = false" class="w-100 h-100"></div>
+        <div class="position-absolute z-2">
+            <app-items-table (closeMenuItems)="menuItemsActive = $event" ></app-items-table>
+        </div>
+    </div>
+    <div class="d-flex flex-column position-relative w-100 z-0">
+    
+        <div class="mb-4">
+            <p class="fs-2 p-0 m-0 border-bottom border-4">Nombre del proyecto</p>
+        </div>
+    
+        <div class="d-flex justify-content-evenly flex-wrap w-100 mb-5">
+            <div class="w-25 border-top border-3 border-primary" style="height: 7rem;">
+                <div class="d-flex align-items-center w-100 h-100 border border-2 border-secundary">
+                    <div class=" w-50 text-center">
+                        <i class="fa-solid fa-circle" style="font-size: 4rem;"></i><!-- <i></i> -->
+                    </div>
+                    <div class=" w-50 text-center">
+                        <p class=" my-0 p-0 fs-3 fw-bold">23%</p>
+                        <p class=" my-0 p-0 fs-6">Listo</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w-25 border-top border-3 border-primary" style="height: 7rem;">
+                <div class="d-flex align-items-center w-100 h-100 border border-2 border-secundary">
+                    <div class=" w-50 text-center">
+                        <i class="fa-solid fa-circle-half-stroke" style="font-size: 4rem;"></i><!-- <i></i> -->
+                    </div>
+                    <div class=" w-50 text-center">
+                        <p class=" my-2 p-0 fs-3 fw-bold">23%</p>
+                        <p class=" my-2 p-0 fs-6">Incompletas</p>
+                    </div>
+                </div>
+            </div>
+            <div class="w-25 border-top border-3 border-primary" style="height: 7rem;">
+                <div class="d-flex align-items-center w-100 h-100 border border-2 border-secundary">
+                    <div class=" w-50 text-center">
+                        <i class="fa-regular fa-circle" style="font-size: 4rem;"></i><!-- <i></i> -->
+                    </div>
+                    <div class=" w-50 text-center">
+                        <p class=" my-2 p-0 fs-3 fw-bold">23%</p>
+                        <p class=" my-2 p-0 fs-6">Sin empezar</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="border border-1 border-secundary w-100 overflow-auto">
+            <app-table-area (sendItemsActive)="menuItemsActive = $event"></app-table-area>
+        </div>
+    
+    </div>
+    
+
+</div>
+
+

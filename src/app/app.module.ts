@@ -16,6 +16,9 @@ import { FullCalendarModule } from '@fullcalendar/angular';
 import { TrashComponent } from './components/trash/trash.component';
 import { ProjectAreaComponent } from './components/project-area/project-area.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TableAreaComponent } from './components/z-others/table-area/table-area.component';
+import { ItemsTableComponent } from './components/z-others/items-table/items-table.component';
+import { PropertyItemsComponent } from './components/z-others/property-items/property-items.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { HttpClientModule } from '@angular/common/http';
     WorkTeamsComponent,
     CalendarComponent,
     TrashComponent,
-    ProjectAreaComponent
+    ProjectAreaComponent,
+    TableAreaComponent,
+    ItemsTableComponent,
+    PropertyItemsComponent
   ],
   imports: [
     BrowserModule,
