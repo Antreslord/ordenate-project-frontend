@@ -9,6 +9,12 @@ export class ProjectAreaComponent {
 
   menuItemsActive:boolean = false
 
+  propertiesItemsActive:boolean = false
+
+  getPropertiesPosition = {
+    transform: ''
+  }
+
   constructor(){}
 
 

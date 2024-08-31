@@ -1,203 +1,214 @@
 <div class="w-100 position-relative">
-    <table class="table align-middle position-relative z-0 table-sm table-hover table-bordered border-primary m-0 p-0 text-nowrap text-center" style="font-size:small;">
-        <thead>
-            <tr>
-                <th scope="col" style="width: 20px;"><input class="form-check-input mx-2" type="checkbox"></th>
-                <th scope="col" style="width: 300px;">
-                    <div class="d-flex align-items-center justify-content-center">
-                        <p class="p-0 mx-3 my-0">Tarea</p>
-                    </div>
-                </th>
-                <th *ngIf="items.responsibleSuject" scope="col" style="width: 150px;">
-                    <div class="d-flex align-items-center">
-                        <p class="p-0 mx-2 my-0 flex-grow-1">Responsable</p>
-                        <div (click)="obtenerPosicion($event)" class="position-relative px-2 py-1 cursor-pointer" style="width:10px;">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
+    <div class="position-absolute w-100 z-0 overflow-auto">
+        <table class="table align-middle table-sm table-hover table-bordered border-primary m-0 p-0 text-nowrap text-center"
+            style="font-size:small;">
+            <thead>
+                <tr>
+                    <th scope="col" style="width: 20px;"><input class="form-check-input mx-2" type="checkbox"></th>
+                    <th scope="col" style="width: 300px;">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <p class="p-0 mx-3 my-0">Tarea</p>
                         </div>
-                    </div>
-                </th>
-                <th *ngIf="items.state" scope="col" style="width: 100px;">
-                    <div class="d-flex align-items-center">
-                        <p class="p-0 mx-2 my-0 flex-grow-1">Estado</p>
-                        <div (click)="obtenerPosicion($event)" class="position-relative px-2 py-1 cursor-pointer" style="width:10px;">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </th>
+                    <th *ngIf="items.responsibleSuject" scope="col" style="width: 150px;">
+                        <div class="d-flex align-items-center">
+                            <p class="p-0 mx-2 my-0 flex-grow-1">Responsable</p>
+                            <div (click)="showPropertiesItems($event, 'responsibleSuject')" class="position-relative px-2 py-1 cursor-pointer"
+                                style="width:10px;">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
                         </div>
-                    </div>
-                </th>
-                <th *ngIf="items.priority" scope="col" style="width:100px;">
-                    <div class="d-flex align-items-center">
-                        <p class="p-0 mx-2 my-0 flex-grow-1">Prioridad</p>
-                        <div (click)="obtenerPosicion($event)" class="position-relative px-2 py-1 cursor-pointer" style="width:10px;">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </th>
+                    <th *ngIf="items.state" scope="col" style="width: 100px;">
+                        <div class="d-flex align-items-center">
+                            <p class="p-0 mx-2 my-0 flex-grow-1">Estado</p>
+                            <div (click)="showPropertiesItems($event, 'state')" class="position-relative px-2 py-1 cursor-pointer"
+                                style="width:10px;">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
                         </div>
-                    </div>
-                </th>
-                 <th *ngIf="items.date" scope="col" style="width:100px;">
-                    <div class="d-flex align-items-center">
-                        <p class="p-0 mx-2 my-0 flex-grow-1">Fecha</p>
-                        <div (click)="obtenerPosicion($event)" class="position-relative px-2 py-1 cursor-pointer" style="width:10px;">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </th>
+                    <th *ngIf="items.priority" scope="col" style="width:100px;">
+                        <div class="d-flex align-items-center">
+                            <p class="p-0 mx-2 my-0 flex-grow-1">Prioridad</p>
+                            <div (click)="showPropertiesItems($event, 'priority')" class="position-relative px-2 py-1 cursor-pointer"
+                                style="width:10px;">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
                         </div>
-                    </div>
-                </th>
-                <th *ngIf="items.schedule" scope="col" style="width: 150px;">
-                    <div class="d-flex align-items-center">
-                        <p class="p-0 mx-2 my-0 flex-grow-1">Cronograma</p>
-                        <div (click)="obtenerPosicion($event)" class="position-relative px-2 py-1 cursor-pointer" style="width:10px;">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </th>
+                    <th *ngIf="items.date" scope="col" style="width:100px;">
+                        <div class="d-flex align-items-center">
+                            <p class="p-0 mx-2 my-0 flex-grow-1">Fecha</p>
+                            <div (click)="showPropertiesItems($event, 'date')" class="position-relative px-2 py-1 cursor-pointer"
+                                style="width:10px;">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
                         </div>
-                    </div>
-                </th>
-                <th *ngIf="items.number" scope="col" style="width:150px">
-                    <div class="d-flex align-items-center">
-                        <p class="p-0 mx-2 my-0 flex-grow-1">Numeros</p>
-                        <div (click)="obtenerPosicion($event)" class="position-relative px-2 py-1 cursor-pointer" style="width:10px;">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </th>
+                    <th *ngIf="items.schedule" scope="col" style="width: 150px;">
+                        <div class="d-flex align-items-center">
+                            <p class="p-0 mx-2 my-0 flex-grow-1">Cronograma</p>
+                            <div (click)="showPropertiesItems($event, 'schedule')" class="position-relative px-2 py-1 cursor-pointer"
+                                style="width:10px;">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
                         </div>
-                    </div>
-                </th>
-                <th *ngIf="items.text" scope="col">
-                    <div class="d-flex align-items-center">
-                        <p class="p-0 mx-2 my-0 flex-grow-1">Texto</p>
-                        <div (click)="obtenerPosicion($event)" class="position-relative px-2 py-1 cursor-pointer" style="width:10px;">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </th>
+                    <th *ngIf="items.number" scope="col" style="width:150px">
+                        <div class="d-flex align-items-center">
+                            <p class="p-0 mx-2 my-0 flex-grow-1">Numeros</p>
+                            <div (click)="showPropertiesItems($event, 'number')" class="position-relative px-2 py-1 cursor-pointer"
+                                style="width:10px;">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
                         </div>
-                    </div>
-                </th>
-                <th *ngIf="items.label" scope="col">
-                    <div class="d-flex align-items-center">
-                        <p class="p-0 mx-2 my-0 flex-grow-1">Etiqueta</p>
-                        <div (click)="obtenerPosicion($event)" class="position-relative px-2 py-1 cursor-pointer" style="width:10px;">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </th>
+                    <th *ngIf="items.text" scope="col">
+                        <div class="d-flex align-items-center">
+                            <p class="p-0 mx-2 my-0 flex-grow-1">Texto</p>
+                            <div (click)="showPropertiesItems($event, 'text')" class="position-relative px-2 py-1 cursor-pointer"
+                                style="width:10px;">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
                         </div>
-                    </div>
-                </th>
-                <th *ngIf="items.selectable" scope="col">
-                    <div class="d-flex align-items-center">
-                        <p class="p-0 mx-2 my-0 flex-grow-1">Seleccion</p>
-                        <div (click)="obtenerPosicion($event)" class="position-relative px-2 py-1 cursor-pointer" style="width:10px;">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </th>
+                    <th *ngIf="items.label" scope="col">
+                        <div class="d-flex align-items-center">
+                            <p class="p-0 mx-2 my-0 flex-grow-1">Etiqueta</p>
+                            <div (click)="showPropertiesItems($event, 'label')" class="position-relative px-2 py-1 cursor-pointer"
+                                style="width:10px;">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
                         </div>
-                    </div>
-                </th>
-                <th *ngIf="items.docs" scope="col">
-                    <div class="d-flex align-items-center">
-                        <p class="p-0 mx-2 my-0 flex-grow-1">Archivo</p>
-                        <div (click)="obtenerPosicion($event)" class="position-relative px-2 py-1 cursor-pointer" style="width:10px;">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </th>
+                    <th *ngIf="items.selectable" scope="col">
+                        <div class="d-flex align-items-center">
+                            <p class="p-0 mx-2 my-0 flex-grow-1">Seleccion</p>
+                            <div (click)="showPropertiesItems($event, 'selectable')" class="position-relative px-2 py-1 cursor-pointer"
+                                style="width:10px;">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
                         </div>
-                    </div>
-                </th>
-                <th *ngIf="items.url" scope="col">
-                    <div class="d-flex align-items-center">
-                        <p class="p-0 mx-2 my-0 flex-grow-1">Enlace</p>
-                        <div (click)="obtenerPosicion($event)" class="position-relative px-2 py-1 cursor-pointer" style="width:10px;">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </th>
+                    <th *ngIf="items.docs" scope="col">
+                        <div class="d-flex align-items-center">
+                            <p class="p-0 mx-2 my-0 flex-grow-1">Archivo</p>
+                            <div (click)="showPropertiesItems($event, 'docs')" class="position-relative px-2 py-1 cursor-pointer"
+                                style="width:10px;">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
                         </div>
-                    </div>
-                </th>
-                <th *ngIf="items.relationship" scope="col">
-                    <div class="d-flex align-items-center">
-                        <p class="p-0 mx-2 my-0 flex-grow-1">Relacion</p>
-                        <div (click)="obtenerPosicion($event)" class="position-relative px-2 py-1 cursor-pointer" style="width:10px;">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </th>
+                    <th *ngIf="items.url" scope="col">
+                        <div class="d-flex align-items-center">
+                            <p class="p-0 mx-2 my-0 flex-grow-1">Enlace</p>
+                            <div (click)="showPropertiesItems($event, 'url')" class="position-relative px-2 py-1 cursor-pointer"
+                                style="width:10px;">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
                         </div>
-                    </div>
-                </th>
-                <th scope="col" class="text-start">
-                    <div class="p-0 me-2">
-                        <button type="button" (click)="sendSignalMenuItems()" class="btn btn-outline-primary px-1 py-0 m-0">
-                            <i class="fa-regular fa-square-plus"></i>
-                        </button>
-                    </div>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td scope="col"><input class="form-check-input" type="checkbox"></td>
-                <td style="max-width: 300px;">
-                    <div class="d-flex justify-content-between mx-2 p-0">
-                        <div class="p-0 me-2 truncate-text">
-                            <p class="truncate-text p-0 m-0">Nombre del proyecto mas largo que se me puede ocurrir en
-                                este momento para hacer que abarque el mayor tamaño para hacer pruebas</p>
+                    </th>
+                    <th *ngIf="items.relationship" scope="col">
+                        <div class="d-flex align-items-center">
+                            <p class="p-0 mx-2 my-0 flex-grow-1">Relacion</p>
+                            <div (click)="showPropertiesItems($event, 'relationship')" class="position-relative px-2 py-1 cursor-pointer"
+                                style="width:10px;">
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
                         </div>
-                        <div class="p-0 m-0"><button type="button " class="btn btn-outline-primary px-1 py-0 m-0"><i
-                                    class="fa-regular fa-message"></i></button>
+                    </th>
+                    <th scope="col" class="text-start">
+                        <div class="p-0 me-2">
+                            <button type="button" (click)="sendSignalMenuItems()" class="btn btn-outline-primary px-1 py-0 m-0">
+                                <i class="fa-regular fa-square-plus"></i>
+                            </button>
                         </div>
-                    </div>
-                </td>
-                <td *ngIf="items.responsibleSuject">
-                    <div class="p-0 me-2">
-                        <p class="p-0 m-0">Hector Finn</p>
-                    </div>
-                </td>
-                <td *ngIf="items.state">
-                    <div class="p-0 me-2">
-                        <p class="p-0 m-0">Sin empezar</p>
-                    </div>
-                </td>
-                <td *ngIf="items.priority">
-                    <div class="p-0 me-2">
-                        <p class="p-0 m-0">Alta</p>
-                    </div>
-                </td>
-                <td *ngIf="items.date">
-                    <div class="p-0 me-2">
-                        <p class="p-0 m-0">2024-06-12</p>
-                    </div>
-                </td>
-                <td *ngIf="items.schedule">
-                    <div class="p-0 me-2">
-                        <div class="">
-                            <p class="p-0 m-0">2024-2-23 / 2024-3-1</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td scope="col"><input class="form-check-input" type="checkbox"></td>
+                    <td style="max-width: 300px;">
+                        <div class="d-flex justify-content-between mx-2 p-0">
+                            <div class="p-0 me-2 truncate-text">
+                                <p class="truncate-text p-0 m-0">Nombre del proyecto mas largo que se me puede ocurrir en
+                                    este momento para hacer que abarque el mayor tamaño para hacer pruebas</p>
+                            </div>
+                            <div class="p-0 m-0"><button type="button " class="btn btn-outline-primary px-1 py-0 m-0"><i
+                                        class="fa-regular fa-message"></i></button>
+                            </div>
                         </div>
-                    </div>
-                </td>
-                <td *ngIf="items.number">
-                    <div class="p-0 me-2">
-                        <p class="p-0 m-0">45632251545616156056161951561654316091319503241324510321324</p>
-                    </div>
-                </td>
-                <td *ngIf="items.text">
-                    <div class="p-0 me-2">
-                        <p class="p-0 m-0">Alto rendimiento</p>
-                    </div>
-                </td>
-                <td *ngIf="items.label">
-                    <div class="p-0 me-2">
-                        <p class="p-0 m-0">Eiquetas</p>
-                    </div>
-                </td>
-                <td *ngIf="items.selectable" style="width: 20px;">
-                    <div class="p-0 me-2">
-                        <input class="form-check-input mx-2" type="checkbox">
-                    </div>
-                </td>
-                <td *ngIf="items.docs">
-                    <div class="p-0 me-2">
-                        <input type="file" accept="application/pdf">
-                    </div>
-                </td>
-                <td *ngIf="items.url">
-                    <div class="p-0 me-2">
-                        <a href="">http://paginainventada.com.co</a>
-                    </div>
-                </td>
-                <td *ngIf="items.relationship">
-                    <div class="p-0 me-2">
-                        <p class="p-0 m-0">relaciones de la tabla del mes proximo</p>
-                    </div>
-                </td>
-                <td></td>
-            </tr>
-    </table>
-
-    
+                    </td>
+                    <td *ngIf="items.responsibleSuject">
+                        <div class="p-0 me-2">
+                            <p class="p-0 m-0">Hector Finn</p>
+                        </div>
+                    </td>
+                    <td *ngIf="items.state">
+                        <div class="p-0 me-2">
+                            <p class="p-0 m-0">Sin empezar</p>
+                        </div>
+                    </td>
+                    <td *ngIf="items.priority">
+                        <div class="p-0 me-2">
+                            <p class="p-0 m-0">Alta</p>
+                        </div>
+                    </td>
+                    <td *ngIf="items.date">
+                        <div class="p-0 me-2">
+                            <p class="p-0 m-0">2024-06-12</p>
+                        </div>
+                    </td>
+                    <td *ngIf="items.schedule">
+                        <div class="p-0 me-2">
+                            <div class="">
+                                <p class="p-0 m-0">2024-2-23 / 2024-3-1</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td *ngIf="items.number">
+                        <div class="p-0 me-2">
+                            <p class="p-0 m-0">45632251545616156056161951561654316091319503241324510321324</p>
+                        </div>
+                    </td>
+                    <td *ngIf="items.text">
+                        <div class="p-0 me-2">
+                            <p class="p-0 m-0">Alto rendimiento</p>
+                        </div>
+                    </td>
+                    <td *ngIf="items.label">
+                        <div class="p-0 me-2">
+                            <p class="p-0 m-0">Eiquetas</p>
+                        </div>
+                    </td>
+                    <td *ngIf="items.selectable" style="width: 20px;">
+                        <div class="p-0 me-2">
+                            <input class="form-check-input mx-2" type="checkbox">
+                        </div>
+                    </td>
+                    <td *ngIf="items.docs">
+                        <div class="p-0 me-2">
+                            <input type="file" accept="application/pdf">
+                        </div>
+                    </td>
+                    <td *ngIf="items.url">
+                        <div class="p-0 me-2">
+                            <a href="">http://paginainventada.com.co</a>
+                        </div>
+                    </td>
+                    <td *ngIf="items.relationship">
+                        <div class="p-0 me-2">
+                            <p class="p-0 m-0">relaciones de la tabla del mes proximo</p>
+                        </div>
+                    </td>
+                    <td></td>
+                </tr>
+        </table>
+    </div>
 
 </div>
 
-<div class="position-absolute z-1 border border-5 border-secundary" [ngStyle]="propertiesPosition">
-    <app-property-items></app-property-items>
-</div>
+
 

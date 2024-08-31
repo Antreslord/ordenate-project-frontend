@@ -8,8 +8,20 @@ export class _ObservablesConnectionService {
   
   private booleanSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
   private stringSubject: BehaviorSubject<string> = new BehaviorSubject<string>('')
+  private valuesStringAndBoolean:BehaviorSubject<Object> = new BehaviorSubject({})
 
   constructor() { }
+
+  setObject(name:string, value:boolean){
+    this.valuesStringAndBoolean.next({
+      nameItem: name,
+      valueItem: value
+    })
+  }
+
+  getObject(): Observable<Object>{
+    return this.valuesStringAndBoolean.asObservable()
+  }
 
   setBoolean(value:boolean){
     this.booleanSubject.next(value)
@@ -21,7 +33,7 @@ export class _ObservablesConnectionService {
   setString(value:string){
     this.stringSubject.next(value)
   }
-  getString(){
+  getString(): Observable<string>{
     return this.stringSubject.asObservable()
   }
 

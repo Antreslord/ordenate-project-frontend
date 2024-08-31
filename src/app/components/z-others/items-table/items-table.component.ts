@@ -10,13 +10,13 @@ export class ItemsTableComponent {
 
   @Output() closeMenuItems:EventEmitter<boolean>
 
-  constructor(private _stringObservable: _ObservablesConnectionService){
+  constructor(private _observableService: _ObservablesConnectionService){
     this.closeMenuItems = new EventEmitter()
   }
 
-  itemChose(value:string){
+  itemChose(name:string, value:boolean){
+    this._observableService.setObject(name, value)
     this.closeMenuItems.emit(false)
-    this._stringObservable.setString(value)
   }
 
 }

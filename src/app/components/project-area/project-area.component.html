@@ -5,6 +5,14 @@
             <app-items-table (closeMenuItems)="menuItemsActive = $event" ></app-items-table>
         </div>
     </div>
+    
+    <div *ngIf="propertiesItemsActive" class="w-100 h-100 position-absolute z-1 d-flex">
+        <div (click)="propertiesItemsActive = false" class="w-100 h-100"></div>
+        <div class="position-absolute z-2 border border-2 rounded-3" [ngStyle]="getPropertiesPosition">
+            <app-property-items (closePropertyItem)="propertiesItemsActive = $event"></app-property-items>
+        </div>
+    </div>
+    
     <div class="d-flex flex-column position-relative w-100 z-0">
     
         <div class="mb-4">
@@ -47,8 +55,8 @@
             </div>
         </div>
     
-        <div class="border border-1 border-secundary w-100 overflow-auto">
-            <app-table-area (sendItemsActive)="menuItemsActive = $event"></app-table-area>
+        <div class="border border-1 border-secundary w-100">
+            <app-table-area (sendPositionWindowProperties)="getPropertiesPosition.transform = $event" (sendItemsPropertyActive)="propertiesItemsActive = $event" (sendItemsActive)="menuItemsActive = $event"></app-table-area>
         </div>
     
     </div>
