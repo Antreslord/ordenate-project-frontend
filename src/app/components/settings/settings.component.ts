@@ -27,6 +27,7 @@ export class SettingsComponent {
   }
 
   logOut(){
+    
     this.router.navigate([''])
   }
 

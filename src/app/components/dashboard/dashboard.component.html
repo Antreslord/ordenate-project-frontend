@@ -1,5 +1,8 @@
 <div class="d-flex vh-100 vw-100 overflow-hidden">
     <div [ngClass]="{'bg-dark text-light': theme}" class="h-100 px-4 py-4 position-relative" style="width:260px; border-right: solid gray 2px;"  >
+        
+        <!-- Datos del usuario -->
+
         <div class="d-flex ">
             <div>
                 <img (click)="goToSettings()" class="photo-user d-inline me-3" style="width: 50px;height: 50px; cursor: pointer;" src="../../../assets/IMGS/blank-profile-picture-973460_640.png" alt="user-profile">
@@ -9,6 +12,9 @@
                 <p style="height: max-content;font-size: 10px;" class="">Ingeniero en Software</p>
             </div>
         </div>
+
+        <!-- Herramientas del usuario -->
+
         <div class="d-flex p-0 mb-3 settings">
             <ul class="list-group list-group-flush" style="font-size: 13px;">
                 <li [ngClass]="{'bg-dark text-light': theme}" (click)="goToSettings()" class="list-group-item"><i class="fa-solid fa-gear me-2"></i>Configuración</li>
@@ -16,30 +22,37 @@
                 <li [ngClass]="{'bg-dark text-light': theme}" (click)="goToWorkTeams()" class="list-group-item"><i class="fa-solid fa-user-group me-2"></i>Equipos de Trabajo</li>
                 <li [ngClass]="{'bg-dark text-light': theme}" (click)="goToCalendar()" class="list-group-item"><i class="fa-solid fa-calendar-days me-2"></i>Calendario</li>
                 <li [ngClass]="{'bg-dark text-light': theme}" (click)="goToTrash()" class="list-group-item"><i class="fa-solid fa-trash-can me-2"></i>Papelera</li>
-
             </ul>
         </div>
-        <div class="projects d-flex my-3 p-0 border">
-            <ul class="list-group list-group-flush w-100" style="font-size: 13px;">
-                <li *ngFor="let i of listProjects" [ngClass]="{'bg-dark text-light': theme}" (click)="goToProject()" class="list-group-item"><i class="fa-solid fa-briefcase me-2"></i>{{i.title}}</li>
-                <!-- <li [ngClass]="{'bg-dark text-light': theme}" (click)="goToProject()" class="list-group-item"><i class="fa-solid fa-briefcase me-2"></i>Proyecto 2</li>
-                <li [ngClass]="{'bg-dark text-light': theme}" (click)="goToProject()" class="list-group-item"><i class="fa-solid fa-briefcase me-2"></i>Proyecto 3</li>
-                <li [ngClass]="{'bg-dark text-light': theme}" (click)="goToProject()" class="list-group-item"><i class="fa-solid fa-briefcase me-2"></i>Proyecto 4</li>
-                <li [ngClass]="{'bg-dark text-light': theme}" (click)="goToProject()" class="list-group-item"><i class="fa-solid fa-briefcase me-2"></i>Proyecto 5</li> -->
-
-            </ul>
+        
+        <!-- Proyectos del usuario -->
+        
+        <div class="projects d-flex mt-3 mb-5 p-0" style="height: 200px;">
+            <div class="w-100 overflow-auto">
+                <ul class="list-group list-group-flush w-100" style="font-size: 13px;">
+                    <li *ngFor="let i of listProjects" [ngClass]="{'bg-dark text-light': theme}" (click)="goToProject()" class="list-group-item truncate-text"><i class="fa-solid fa-briefcase me-2"></i>{{i.title}}</li>
+                </ul>
+            </div>
+            
         </div>
+
+        <!-- Boton Premium -->
+
         <div class="member-premium">
             <div [ngClass]="{'bg-dark text-light': theme}" class="border border-3 border-secondary d-flex justify-content-center align-items-center">
                 <p class="my-2 fw-bold"><i class="fa-regular fa-star me-2"></i>Plan Plus</p>
             </div>
         </div>
     </div>
+
+    <!-- Ventana de crear nuevo Proyecto -->
+
     <div [ngClass]="{'bg-dark text-light': theme}" *ngIf="!pressButtonNewProject" class="position-relative overflow-auto p-4 h-100 w-100">
         <router-outlet class="position-absolute top-0 start-0 z-1 "></router-outlet>
     </div>
+
+    <!-- Espacio de trabajo del usurio -->
     <div *ngIf="pressButtonNewProject" class="position-relative overflow-hidden p-4 h-100 w-100">
-        
         <app-name-project class="position-absolute  top-0 start-0 z-2 align-self-center w-100 h-100" (cancelProject)="pressButtonNewProject = $event"  *ngIf="pressButtonNewProject"></app-name-project>
     </div>
 </div>

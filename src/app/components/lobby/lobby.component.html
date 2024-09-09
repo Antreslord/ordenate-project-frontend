@@ -1,15 +1,24 @@
 <main  class="d-flex justify-content-center position-relative">
 
-    <app-login *ngIf="clickLogin"  class="z-2 position-fixed" style="margin-top: 4rem;"></app-login>     
+    <div class="z-1 position-fixed d-flex justify-content-center align-items-center" *ngIf="windowLogin || windowSignUp" style="width: 100vw; height: 100vh;">
+        <div class="w-100 h-100 position-absolute z-2" (click)="windowLogin = false; windowSignUp = false"></div>
+        <div class="position-absolute z-3" *ngIf="windowLogin">
+            <app-login></app-login>     
+        </div>
+        <div class="position-absolute z-3" *ngIf="windowSignUp">
+            <app-sign-up></app-sign-up>
+        </div>
+    </div>
 
 
     <section  class="d-flex flex-column border border-primary border-5 z-0 position-absolute" style="width: 90%;">
 
         <div class="d-flex justify-content-end mb-5 border border-primary border-5 ">
-            <button class="btn btn-primary" (click)="showLogin()">Iniciar sesión</button>
+            <button class="btn btn-primary" (click)="windowLogin = true">Iniciar sesión</button>
+            <button class="btn btn-primary" (click)="windowSignUp = true">Registrarse</button>
         </div>
 
-        <article (click)="hiddenLoging()" class="border border-primary border-5 ">
+        <article class="border border-primary border-5 ">
             <div class="d-flex align-items-center flex-column">
                 <h2 class="text-center">Pon ORDEN a tus proyectos</h2>
                 <!-- img -->

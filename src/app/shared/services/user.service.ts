@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { User } from '../classes/user';
+import { User } from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root'
@@ -18,19 +18,17 @@ export class _UserService {
     this.myApiUrl = 'api/user/';
   }
 
-  getListUsers():Observable<User[]>{
-    return this.http.get<User[]>(`${this.myAppUrl}${this.myApiUrl}`)
+  //Metodo Sign In
+  signIn(user:User): Observable<any>{
+    return this.http.post(`${this.myAppUrl}${this.myApiUrl}`,user)
   }
 
-  getUser(id:number):Observable<User>{
-    return this.http.get<User>(`${this.myAppUrl}${this.myApiUrl}${id}`)
-  }
-
-  saveUser(user:User):Observable<void>{
-    return this.http.post<void>(`${this.myAppUrl}${this.myApiUrl}`,user)
+  //Metodo login
+  login(user:User):Observable<string>{
+    return this.http.post<string>(`${this.myAppUrl}${this.myApiUrl}login`,user)
   }
 
   updateUser(id:number, user:User):Observable<void>{
-    return this.http.put<void>(`${this.myAppUrl}${this.myApiUrl}${id}`,user)
+    return this.http.put<void>(`${this.myAppUrl}${this.myApiUrl}`,user)
   }
 }

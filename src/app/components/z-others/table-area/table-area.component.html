@@ -128,13 +128,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr *ngFor="let activity of listActivities">
                     <td scope="col"><input class="form-check-input" type="checkbox"></td>
                     <td style="max-width: 300px;">
                         <div class="d-flex justify-content-between mx-2 p-0">
                             <div class="p-0 me-2 truncate-text">
-                                <p class="truncate-text p-0 m-0">Nombre del proyecto mas largo que se me puede ocurrir en
-                                    este momento para hacer que abarque el mayor tamaño para hacer pruebas</p>
+                                <p class="truncate-text p-0 m-0">{{activity.title}}</p>
                             </div>
                             <div class="p-0 m-0"><button type="button " class="btn btn-outline-primary px-1 py-0 m-0"><i
                                         class="fa-regular fa-message"></i></button>
@@ -143,44 +142,44 @@
                     </td>
                     <td *ngIf="items.responsibleSuject">
                         <div class="p-0 me-2">
-                            <p class="p-0 m-0">Hector Finn</p>
+                            <p class="p-0 m-0">{{activity.responsible_suject}}</p>
                         </div>
                     </td>
                     <td *ngIf="items.state">
                         <div class="p-0 me-2">
-                            <p class="p-0 m-0">Sin empezar</p>
+                            <p class="p-0 m-0">{{activity.state}}</p>
                         </div>
                     </td>
                     <td *ngIf="items.priority">
                         <div class="p-0 me-2">
-                            <p class="p-0 m-0">Alta</p>
+                            <p class="p-0 m-0">{{activity.priority}}</p>
                         </div>
                     </td>
                     <td *ngIf="items.date">
                         <div class="p-0 me-2">
-                            <p class="p-0 m-0">2024-06-12</p>
+                            <p class="p-0 m-0">{{activity.deadline}}</p>
                         </div>
                     </td>
                     <td *ngIf="items.schedule">
                         <div class="p-0 me-2">
                             <div class="">
-                                <p class="p-0 m-0">2024-2-23 / 2024-3-1</p>
+                                <p class="p-0 m-0">{{activity.schedule}}</p>
                             </div>
                         </div>
                     </td>
                     <td *ngIf="items.number">
                         <div class="p-0 me-2">
-                            <p class="p-0 m-0">45632251545616156056161951561654316091319503241324510321324</p>
+                            <p class="p-0 m-0">{{activity.number}}</p>
                         </div>
                     </td>
                     <td *ngIf="items.text">
                         <div class="p-0 me-2">
-                            <p class="p-0 m-0">Alto rendimiento</p>
+                            <p class="p-0 m-0">{{activity.text}}</p>
                         </div>
                     </td>
                     <td *ngIf="items.label">
                         <div class="p-0 me-2">
-                            <p class="p-0 m-0">Eiquetas</p>
+                            <p class="p-0 m-0">{{activity.label}}</p>
                         </div>
                     </td>
                     <td *ngIf="items.selectable" style="width: 20px;">
@@ -195,7 +194,7 @@
                     </td>
                     <td *ngIf="items.url">
                         <div class="p-0 me-2">
-                            <a href="">http://paginainventada.com.co</a>
+                            <a href=""><p class="p-0 m-0">{{activity.link}}</p></a>
                         </div>
                     </td>
                     <td *ngIf="items.relationship">

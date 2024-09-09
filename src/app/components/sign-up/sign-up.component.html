@@ -1,0 +1,48 @@
+<div class="d-flex align-items-center bg-dark rounded-3" style="height: 75vh; width: 80vw;">
+    <img class="bg-gradient-img w-50 h-100 object-fit-cover rounded-start-3" src="https://cdn.pixabay.com/photo/2022/06/11/13/45/planner-7256373_960_720.jpg" alt="img">
+    <div class="d-flex flex-column align-items-center w-50 h-100 p-5">
+        <div class="ps-3 mb-4 w-100">
+            <p class="p-0 m-0 fs-2 text-bg-dark text-start">Crea una nueva Cuenta</p>
+        </div>
+        
+        <div class="d-flex flex-column w-100 px-4 py-0">
+
+            <!-- Nombres y Apellidos -->
+    
+            <div class="d-flex w-100 h-auto justify-content-between">
+                <div class="form-floating" style="width: 45%;">
+                    <input [(ngModel)]="name" type="text" class="form-control" id="floatingInput" placeholder="Nombre"><i class="fa-solid fa-eye"></i>
+                    <label for="floatingInput">Nombre</label>
+                </div>
+                <div class="form-floating" style="width: 45%;">
+                    <input [(ngModel)]="lastname" type="text" class="form-control" id="floatingInput" placeholder="Apellidos">
+                    <label for="floatingInput">Apellidos</label>
+                </div>
+            </div>
+    
+            <!-- Correo -->
+            <div class="form-floating mb-3">
+                <input [(ngModel)]="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Correo Electrónico</label>
+            </div>
+    
+            <!-- Password -->
+            <div class="form-floating mb-3">
+                <input [(ngModel)]="password" type="password" class="form-control" id="floatingInput" placeholder="Contraseña">
+                <label for="floatingInput">Password</label>
+            </div>
+            
+            <div class="mb-4">
+                <p class="m-0 p-0 text-bg-dark" style="font-size: small;">¿Ya tienes cuenta? <a href="">Inicia Sesión</a></p>
+            </div>
+
+            <div class="d-flex justify-content-evenly w-100">
+                
+                <!-- Boton Iniciar Sesion-->
+                <button (click)="addUser()" type="button" class="btn btn-primary">Registrar</button>
+            
+            </div>
+
+        </div>
+    </div>
+</div>

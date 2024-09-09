@@ -2,13 +2,13 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
-import { Activity } from "../classes/activity";
+import { Activity } from "../interfaces/activity";
 
 @Injectable({
     providedIn: 'root'
 })
 
-export class _ActivityUser {
+export class _ActivityService {
 
     private myAppUrl:string
     private myApiUrl:string

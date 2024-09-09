@@ -10,12 +10,13 @@ import { WorkTeamsComponent } from './components/work-teams/work-teams.component
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { TrashComponent } from './components/trash/trash.component';
 import { ProjectAreaComponent } from './components/project-area/project-area.component';
+import { authGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   { path:'', component:LobbyComponent },
   { path:'login', component:LoginComponent },
   { path:'name-project', component:NameProjectComponent },
-  { path:'dashboard', component:DashboardComponent,
+  { path:'dashboard', component:DashboardComponent, canActivate: [authGuard],
     
     children:[
       { path:'projects', component:ProjectComponent },

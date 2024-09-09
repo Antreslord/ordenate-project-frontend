@@ -16,3 +16,7 @@
 .text-nowrap{
     white-space: nowrap;
 }
+/* 
+.bg-gradient-img{
+    mask-image: linear-gradient(90deg,#212529 20px,transparent);
+} */

@@ -1,10 +1,9 @@
-export interface user{
-    userId:string;
-    photoUser:any;
+export interface User{
     name:string;
-    lastName:string;
+    lastname:string;
     profession:string;
+    photo_user?:any;
     email:string;
     password?:string;
-    appearance:boolean; //apariencia
+    apareance:number; //apariencia
 }

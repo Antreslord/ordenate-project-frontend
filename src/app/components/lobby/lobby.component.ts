@@ -9,17 +9,7 @@ export class LobbyComponent {
 
   constructor(){}
 
-  clickLogin:boolean = false;
-
-  showLogin(){
-    this.clickLogin = true;
-  }
-
-  hiddenLoging(){
-    if(this.clickLogin){
-      this.clickLogin=false;
-    }
-  }
-
+  windowLogin:boolean = false;
+  windowSignUp:boolean = false
 
 }

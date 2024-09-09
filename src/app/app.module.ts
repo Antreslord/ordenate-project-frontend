@@ -15,10 +15,12 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { TrashComponent } from './components/trash/trash.component';
 import { ProjectAreaComponent } from './components/project-area/project-area.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TableAreaComponent } from './components/z-others/table-area/table-area.component';
 import { ItemsTableComponent } from './components/z-others/items-table/items-table.component';
 import { PropertyItemsComponent } from './components/z-others/property-items/property-items.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { AddTokenInterceptor } from './interceptor/add-token.interceptor';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { PropertyItemsComponent } from './components/z-others/property-items/pro
     ProjectAreaComponent,
     TableAreaComponent,
     ItemsTableComponent,
-    PropertyItemsComponent
+    PropertyItemsComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,9 @@ import { PropertyItemsComponent } from './components/z-others/property-items/pro
     FullCalendarModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass:AddTokenInterceptor, multi: true} //<-- interceptors used
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

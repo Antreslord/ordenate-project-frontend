@@ -1,38 +1,35 @@
-<main class="d-flex justify-content-center bg-white" style="height: 75vh;">
-
-        <div class="d-flex align-items-center justify-content-center h-100 border border-secondary border-5 rounded div-general">
-                
-            <!-- IMG -->
+<div class="d-flex align-items-center bg-dark rounded-3" style="height: 75vh; width: 80vw;">
+    <div class="w-50 h-100 p-5">
+        <div class="ps-3 mb-4 w-100">
+            <p class="p-0 m-0 fs-2 text-bg-dark text-start">Iniciar Sesión</p>
+        </div>
+        
+        <div class="d-flex flex-column w-100 px-4 py-0">
+    
+            <!-- Correo -->
+            <div class="form-floating mb-3">
+                <input [(ngModel)]="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Correo Electrónico</label>
+            </div>
+    
+            <!-- Password -->
+            <div class="form-floating mb-3">
+                <input [(ngModel)]="password" type="password" class="form-control" id="floatingInput" placeholder="Contraseña">
+                <label for="floatingInput">Password</label>
+            </div>
             
-            <img class="h-100" src="https://images.pexels.com/photos/5417622/pexels-photo-5417622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="img">
+            <div class="mb-4">
+                <p class="m-0 p-0 text-bg-dark" style="font-size: small;">¿Aún no tienes cuenta? <a href="">Registrate</a></p>
+            </div>
+
+            <div class="d-flex justify-content-evenly w-100">
+                
+                <!-- Boton Iniciar Sesion-->
+                <button type="button" (click)="login()" class="btn btn-primary">Iniciar Sesión</button>
             
-
-            <div class="d-flex flex-column justify-content-center h-100  px-5">
-
-                <!-- <div>
-                    <i class="fa-solid fa-xmark"></i>
-                </div> -->
-                
-                <div class="mb-3">
-
-                    <p class="text-center fs-3">¡Entra y comienza en Orden!</p>
-                    <p class="text-center">Que bueno que empieces a organizar desde ahora!</p>
-
-                </div>
-                
-                
-                <div (click)="goToDashboard()" class="d-flex align-items center border border-5 rounded pt-2 ps-3 mb-3 b-google">
-                    <i class="fa-brands fa-google text-center fs-4 m-2" style="color: #383540; height: max-content;"></i>
-                    <p class="mt-2">Usar Google</p>
-                </div>
-
-                <div class="d-flex align-items-center justify-content-center border border-5 rounded w-75 b-others" style="height: max-content;">
-                    <p class="fs-5 text-center mt-3 ">Accede de otra manera</p>
-                </div>
             </div>
 
         </div>
-
-
-
-</main>
+    </div>
+    <img class="bg-gradient-img w-50 h-100 object-fit-cover rounded-end-3" src="https://cdn.pixabay.com/photo/2015/05/28/14/38/ux-787980_1280.jpg" alt="img">
+</div>

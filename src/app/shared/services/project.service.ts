@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
@@ -20,7 +20,11 @@ import { Project } from "src/app/shared/interfaces/project";
     }
 
     getListProjects(): Observable<Project[]>{
-        return this.http.get<Project[]>(`${this.myAppUrl}${this.myApiUrl}`)
+
+        const token = localStorage.getItem('token')
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`)
+
+        return this.http.get<Project[]>(`${this.myAppUrl}${this.myApiUrl}`,{ headers: headers })
     }
 
     getProject(id: number):Observable<Project>{

@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { Activity } from 'src/app/shared/interfaces/activity';
+import { _ActivityService } from 'src/app/shared/services/activity.service';
 import { _ObservablesConnectionService } from 'src/app/shared/services/observables-connection.service';
 
 @Component({
@@ -26,6 +28,8 @@ export class TableAreaComponent {
 
   auxItem:any = {}
 
+  listActivities:Activity[] = []
+
   private subscriptionItemsMenu : Subscription
   
 
@@ -33,7 +37,7 @@ export class TableAreaComponent {
   @Output() sendItemsPropertyActive:EventEmitter<boolean>
   @Output() sendPositionWindowProperties:EventEmitter<string>
 
-  constructor(private _observableService: _ObservablesConnectionService){
+  constructor(private _observableService: _ObservablesConnectionService, private _activityService:_ActivityService){
     this.sendItemsActive = new EventEmitter()
     this.sendItemsPropertyActive = new EventEmitter()
     this.sendPositionWindowProperties = new EventEmitter()
@@ -46,6 +50,7 @@ export class TableAreaComponent {
       }   
     })
 
+    this.getListProjects()
   }
 
   sendSignalMenuItems(){
@@ -58,6 +63,12 @@ export class TableAreaComponent {
     this._observableService.setString(name)
     this.sendPositionWindowProperties.emit(aux)
     this.sendItemsPropertyActive.emit(true)
+  }
+
+  getListProjects(){
+    this._activityService.getListActivities().subscribe((data) => {
+      this.listActivities = data
+    })
   }
 
 }
