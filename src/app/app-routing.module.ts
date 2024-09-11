@@ -19,12 +19,12 @@ const routes: Routes = [
   { path:'dashboard', component:DashboardComponent, canActivate: [authGuard],
     
     children:[
-      { path:'projects', component:ProjectComponent },
-      { path:'setting', component:SettingsComponent },
-      { path:'workTeam', component:WorkTeamsComponent },
-      { path:'calendar',component:CalendarComponent },
-      { path:'trash', component:TrashComponent },
-      { path:'project-area', component:ProjectAreaComponent }
+      { path:'projects', component:ProjectComponent, canActivate: [authGuard] },
+      { path:'setting', component:SettingsComponent, canActivate: [authGuard] },
+      { path:'workTeam', component:WorkTeamsComponent, canActivate: [authGuard] },
+      { path:'calendar',component:CalendarComponent, canActivate: [authGuard] },
+      { path:'trash', component:TrashComponent, canActivate: [authGuard] },
+      { path:'project-area', component:ProjectAreaComponent, canActivate: [authGuard] }
     ]
   
   }

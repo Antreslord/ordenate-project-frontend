@@ -27,7 +27,8 @@ export class SettingsComponent {
   }
 
   logOut(){
-    
+    localStorage.removeItem('token')
+    localStorage.removeItem('emailUsed')
     this.router.navigate([''])
   }
 

@@ -21,10 +21,11 @@ import { Project } from "src/app/shared/interfaces/project";
 
     getListProjects(): Observable<Project[]>{
 
-        const token = localStorage.getItem('token')
-        const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`)
+        // const token = localStorage.getItem('token')
+        // const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`)
 
-        return this.http.get<Project[]>(`${this.myAppUrl}${this.myApiUrl}`,{ headers: headers })
+        // return this.http.get<Project[]>(`${this.myAppUrl}${this.myApiUrl}`,{ headers: headers })
+        return this.http.get<Project[]>(`${this.myAppUrl}${this.myApiUrl}`)
     }
 
     getProject(id: number):Observable<Project>{
