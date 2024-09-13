@@ -18,15 +18,12 @@ export class LoginComponent {
   constructor(private _userService: _UserService,private router:Router, private _toastr: ToastrService){}
 
   login(){
-    //this.router.navigate(['dashboard/projects'])
-
     //validamos que los campos esten diligenciados
     if(this.email == '' || this.password == ''){
-      alert('Los campos deben ser diligenciados')
+      this._toastr.warning('Los campos deben ser diligenciados', 'Atencion')
       return;
     }
 
-    //crear un objeto
     //crear un objeto
     const user: User = {
       name: 'camilo',
@@ -39,9 +36,12 @@ export class LoginComponent {
 
     this._userService.login(user).subscribe({
       next:(token) => {
-        this.router.navigate(['dashboard/projects'])
         localStorage.setItem('token', token)
-        localStorage.setItem('emailUsed', user.email)
+        this.router.navigate(['dashboard/projects'])
+
+        this._userService.findUserByEmail(user.email).subscribe((data)=> {
+          localStorage.setItem('user', JSON.stringify(data))
+        })
       },
       error: (e: HttpErrorResponse) => {
 

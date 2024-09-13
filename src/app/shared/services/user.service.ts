@@ -18,6 +18,11 @@ export class _UserService {
     this.myApiUrl = 'api/user/';
   }
 
+  //Metodo findUserByEmail
+  findUserByEmail(email:string):Observable<User>{
+    return this.http.get<User>(`${this.myAppUrl}${this.myApiUrl}${email}`)
+  }
+
   //Metodo Sign In
   signIn(user:User): Observable<any>{
     return this.http.post(`${this.myAppUrl}${this.myApiUrl}`,user)

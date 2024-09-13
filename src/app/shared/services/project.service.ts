@@ -28,6 +28,10 @@ import { Project } from "src/app/shared/interfaces/project";
         return this.http.get<Project[]>(`${this.myAppUrl}${this.myApiUrl}`)
     }
 
+    getListProjectsByUserId(id: number): Observable<Project[]>{
+        return this.http.get<Project[]>(`${this.myAppUrl}${this.myApiUrl}find_projects/${id}`)
+    }
+
     getProject(id: number):Observable<Project>{
         return this.http.get<Project>(`${this.myAppUrl}${this.myApiUrl}${id}`)
     }
