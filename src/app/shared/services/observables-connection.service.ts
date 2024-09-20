@@ -6,9 +6,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class _ObservablesConnectionService {
   
-  private booleanSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
   private stringSubject: BehaviorSubject<string> = new BehaviorSubject<string>('')
   private valuesStringAndBoolean:BehaviorSubject<Object> = new BehaviorSubject({})
+  private numberSubject:BehaviorSubject<number> = new BehaviorSubject(0)
 
   constructor() { }
 
@@ -18,16 +18,8 @@ export class _ObservablesConnectionService {
       valueItem: value
     })
   }
-
   getObject(): Observable<Object>{
     return this.valuesStringAndBoolean.asObservable()
-  }
-
-  setBoolean(value:boolean){
-    this.booleanSubject.next(value)
-  }
-  getBoolean(): Observable<boolean>{
-    return this.booleanSubject.asObservable()
   }
 
   setString(value:string){
@@ -35,6 +27,13 @@ export class _ObservablesConnectionService {
   }
   getString(): Observable<string>{
     return this.stringSubject.asObservable()
+  }
+
+  getNumber(): Observable<number>{
+    return this.numberSubject.asObservable()
+  }
+  setNumber(value:number){
+    this.numberSubject.next(value)
   }
 
 }

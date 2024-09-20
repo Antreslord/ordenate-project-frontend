@@ -47,7 +47,7 @@
                         <p class="m-0 p-0">Cambiar a tema oscuro</p>
                     </div>
                     <div class="form-check form-switch">
-                        <input [checked]="theme" (click)="sendTheme()" class="form-check-input me-5 cursor-setting" type="checkbox" role="switch" id="dark-theme">
+                        <input [(ngModel)]="theme" (click)="changeTheme()" class="form-check-input me-5 cursor-setting" type="checkbox" role="switch" id="dark-theme">
                     </div>
                 </div>
             </div>

@@ -28,8 +28,11 @@ import { Project } from "src/app/shared/interfaces/project";
         return this.http.get<Project[]>(`${this.myAppUrl}${this.myApiUrl}`)
     }
 
-    getListProjectsByUserId(id: number): Observable<Project[]>{
-        return this.http.get<Project[]>(`${this.myAppUrl}${this.myApiUrl}find_projects/${id}`)
+    getListProjectsByUserId(): Observable<Project[]>{
+        const userStorage: any = localStorage.getItem('user')
+        const userJSON = JSON.parse(userStorage)
+        const userId:number = Number(userJSON.id)
+        return this.http.get<Project[]>(`${this.myAppUrl}${this.myApiUrl}find_projects/${userId}`)
     }
 
     getProject(id: number):Observable<Project>{

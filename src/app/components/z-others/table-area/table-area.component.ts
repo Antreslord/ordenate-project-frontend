@@ -1,8 +1,10 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Activity } from 'src/app/shared/interfaces/activity';
+import { Project } from 'src/app/shared/interfaces/project';
 import { _ActivityService } from 'src/app/shared/services/activity.service';
 import { _ObservablesConnectionService } from 'src/app/shared/services/observables-connection.service';
+import { projectChose } from 'src/app/shared/services/project_chose.service';
 
 @Component({
   selector: 'app-table-area',
@@ -30,25 +32,26 @@ export class TableAreaComponent {
 
   listActivities:Activity[] = []
 
-  private subscriptionItemsMenu : Subscription
+  numberProject:number = 0; 
+
+  private subscriptionObservableService: Subscription = new Subscription();
   
 
   @Output() sendItemsActive:EventEmitter<boolean>
   @Output() sendItemsPropertyActive:EventEmitter<boolean>
   @Output() sendPositionWindowProperties:EventEmitter<string>
 
-  constructor(private _observableService: _ObservablesConnectionService, private _activityService:_ActivityService){
+  constructor(
+    private _observableService: _ObservablesConnectionService,
+    private _activityService:_ActivityService,
+    private _projectChoseService: projectChose
+  )
+    {
     this.sendItemsActive = new EventEmitter()
     this.sendItemsPropertyActive = new EventEmitter()
     this.sendPositionWindowProperties = new EventEmitter()
-    
-    this.subscriptionItemsMenu = this._observableService.getObject().subscribe((data) => {
-      this.auxItem = data 
-      const { nameItem, valueItem } = this.auxItem
-      if(nameItem in this.items){
-        this.items[nameItem] = valueItem
-      }   
-    })
+
+    this.showItemChose()
 
     this.getListProjects()
   }
@@ -65,10 +68,24 @@ export class TableAreaComponent {
     this.sendItemsPropertyActive.emit(true)
   }
 
+  showItemChose(){
+
+    this.subscriptionObservableService.add(this._observableService.getObject().subscribe((data)=>{
+      this.auxItem = data 
+      const { nameItem, valueItem } = this.auxItem
+      if(nameItem in this.items){
+        this.items[nameItem] = valueItem
+      }   
+    }))
+  }
+
   getListProjects(){
-    this._activityService.getListActivities().subscribe((data) => {
-      this.listActivities = data
-    })
+    this.subscriptionObservableService.add(this._projectChoseService.getInfoProject().subscribe((data) => {
+      const project:any = data; 
+      this._activityService.getListActivitiesByUserAndProject(project.id).subscribe((dataProject)=>{
+        this.listActivities = dataProject
+      })
+    }))
   }
 
 }

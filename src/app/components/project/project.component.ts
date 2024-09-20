@@ -13,19 +13,19 @@ export class ProjectComponent {
   
   
   constructor(private _projectService:_ProjectService){
+    this.getListProjectsById()
   }
 
   ngOnInit():void{
-    this.getListProject()
+    
   }
 
 
-  getListProject(){
-    this._projectService.getListProjects().subscribe((data) => {
-      console.log(data[1].id_user)
+  getListProjectsById(){
+    this._projectService.getListProjectsByUserId().subscribe((data) => {
       this.listProjects = data
-      console.log(this.listProjects)
     })  
+    
   }
 
 }

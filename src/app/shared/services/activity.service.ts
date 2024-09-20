@@ -22,6 +22,13 @@ export class _ActivityService {
         return this.http.get<Activity[]>(`${this.myAppUrl}${this.myApiUrl}`)
     }
 
+    getListActivitiesByUserAndProject(id_project:number):Observable<Activity[]>{
+        const userStorage: any = localStorage.getItem('user')
+        const userJSON = JSON.parse(userStorage)
+        const userId:number = Number(userJSON.id)
+        return this.http.get<Activity[]>(`${this.myAppUrl}${this.myApiUrl}activities/${userId}/${id_project}`)
+    }
+
     getActivity(id: number):Observable<Activity>{
         return this.http.get<Activity>(`${this.myAppUrl}${this.myApiUrl}${id}`)
     }

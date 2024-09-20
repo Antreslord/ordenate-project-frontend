@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { Project } from 'src/app/shared/interfaces/project';
 import { _ObservablesConnectionService } from 'src/app/shared/services/observables-connection.service';
 import { _ProjectService } from 'src/app/shared/services/project.service';
+import { projectChose } from 'src/app/shared/services/project_chose.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,29 +14,37 @@ import { _ProjectService } from 'src/app/shared/services/project.service';
 export class DashboardComponent {
 
   listProjects:Project[] = []
-  private subscriptionThemeSettings: Subscription
+  //private subscriptionThemeSettings: Subscription
   
-  constructor(private router:Router, private connectionObservable: _ObservablesConnectionService, private _projectService:_ProjectService){
-    this.subscriptionThemeSettings = this.connectionObservable.getBoolean().subscribe((dataBoolean)=>{
-      this.theme = dataBoolean;
-    })
+  constructor(
+    private router:Router, 
+    private _connectionObservable: _ObservablesConnectionService, 
+    private _projectService:_ProjectService,
+    private projectChoseService:projectChose
+  ){
     this.getListProjects()
+    this.theme = this.colorTheme()
   }
 
   //abrir nueva ventana para un nuevo proyecto / open new window to make a new project
   pressButtonNewProject:boolean = false;
 
   //establece el color del ambiente
-  theme:boolean = false
+  theme:boolean;
+
+  colorTheme():boolean{
+    const userInfo:any = localStorage.getItem('user');
+    const userJSON = JSON.parse(userInfo);
+    const { apareance } = userJSON
+
+    return apareance
+  }
 
   getListProjects(){
-    this._projectService.getListProjects().subscribe((data) => {
+    this._projectService.getListProjectsByUserId().subscribe((data) => {
       this.listProjects = data
-      console.log(this.listProjects)
     })
-  }  
-
-
+  }
 
   goToSettings(){
     this.router.navigate(['dashboard/setting'])
@@ -53,7 +62,7 @@ export class DashboardComponent {
     this.router.navigate(['dashboard/trash'])
   }
 
-  goToProject(){
-    this.router.navigate(['dashboard/project-area'])
+  goToProject(index:number){
+    this.projectChoseService.setInfoProject(this.listProjects[index])
   }
 }

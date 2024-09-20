@@ -17,11 +17,11 @@
 
         <div class="d-flex p-0 mb-3 settings">
             <ul class="list-group list-group-flush" style="font-size: 13px;">
-                <li [ngClass]="{'bg-dark text-light': theme}" (click)="goToSettings()" class="list-group-item"><i class="fa-solid fa-gear me-2"></i>Configuración</li>
-                <li [ngClass]="{'bg-dark text-light': theme}" (click)="pressButtonNewProject = true" class="list-group-item"><i class="fa-solid fa-file-circle-plus me-2"></i>Nuevo Proyecto</li>
-                <li [ngClass]="{'bg-dark text-light': theme}" (click)="goToWorkTeams()" class="list-group-item"><i class="fa-solid fa-user-group me-2"></i>Equipos de Trabajo</li>
-                <li [ngClass]="{'bg-dark text-light': theme}" (click)="goToCalendar()" class="list-group-item"><i class="fa-solid fa-calendar-days me-2"></i>Calendario</li>
-                <li [ngClass]="{'bg-dark text-light': theme}" (click)="goToTrash()" class="list-group-item"><i class="fa-solid fa-trash-can me-2"></i>Papelera</li>
+                <li [ngClass]="{'bg-dark text-light': theme}" (click)="goToSettings()" class="list-group-item truncate-text"><i class="fa-solid fa-gear me-2"></i>Configuración</li>
+                <li [ngClass]="{'bg-dark text-light': theme}" (click)="pressButtonNewProject = true" class="list-group-item truncate-text"><i class="fa-solid fa-file-circle-plus me-2"></i>Nuevo Proyecto</li>
+                <li [ngClass]="{'bg-dark text-light': theme}" (click)="goToWorkTeams()" class="list-group-item truncate-text"><i class="fa-solid fa-user-group me-2"></i>Equipos de Trabajo</li>
+                <li [ngClass]="{'bg-dark text-light': theme}" (click)="goToCalendar()" class="list-group-item truncate-text"><i class="fa-solid fa-calendar-days me-2"></i>Calendario</li>
+                <li [ngClass]="{'bg-dark text-light': theme}" (click)="goToTrash()" class="list-group-item truncate-text"><i class="fa-solid fa-trash-can me-2"></i>Papelera</li>
             </ul>
         </div>
         
@@ -30,7 +30,7 @@
         <div class="projects d-flex mt-3 mb-5 p-0" style="height: 200px;">
             <div class="w-100 overflow-auto">
                 <ul class="list-group list-group-flush w-100" style="font-size: 13px;">
-                    <li *ngFor="let i of listProjects" [ngClass]="{'bg-dark text-light': theme}" (click)="goToProject()" class="list-group-item truncate-text"><i class="fa-solid fa-briefcase me-2"></i>{{i.title}}</li>
+                    <li *ngFor="let i of listProjects; let j = index" [ngClass]="{'bg-dark text-light': theme}" (click)="goToProject(j)" class="list-group-item truncate-text"><i class="fa-solid fa-briefcase me-2"></i>{{i.title}}</li>
                 </ul>
             </div>
             

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, TitleStrategy } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { _ObservablesConnectionService } from 'src/app/shared/services/observables-connection.service';
+import { _UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-settings',
@@ -10,26 +12,35 @@ import { _ObservablesConnectionService } from 'src/app/shared/services/observabl
 })
 export class SettingsComponent {
 
-  theme:boolean = true; 
+  theme:boolean = false; 
 
-  constructor(private router:Router, private connectionObservables:_ObservablesConnectionService){
-    this.sendTheme()
+  constructor(private router:Router, private _userService: _UserService, private _toastr: ToastrService){
   }
 
-  sendTheme(){
-    if(this.theme){
-      this.theme = false  
-      this.connectionObservables.setBoolean(this.theme)
+  changeTheme(){
+
+    const userInfo:any = localStorage.getItem('user')
+    const userJSON = JSON.parse(userInfo)
+    const { id, apareance } = userJSON
+
+    if(apareance ){
+      this.theme = false
     }else{
       this.theme = true
-      this.connectionObservables.setBoolean(this.theme)
     }
+
+    userJSON.apareance = this.theme
+
+    this._userService.updateUser(id,userJSON).subscribe(() => {
+      localStorage.setItem('user',JSON.stringify(userJSON));
+      window.location.reload();
+    })
+
+    
   }
 
   logOut(){
-    localStorage.removeItem('token')
-    localStorage.removeItem('emailUsed')
-    localStorage.removeItem('user')
+    localStorage.clear()
     this.router.navigate([''])
   }
 

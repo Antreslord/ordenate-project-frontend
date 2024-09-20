@@ -20,7 +20,7 @@ export class _UserService {
 
   //Metodo findUserByEmail
   findUserByEmail(email:string):Observable<User>{
-    return this.http.get<User>(`${this.myAppUrl}${this.myApiUrl}${email}`)
+    return this.http.get<User>(`${this.myAppUrl}${this.myApiUrl}email/${email}`)
   }
 
   //Metodo Sign In
@@ -34,6 +34,6 @@ export class _UserService {
   }
 
   updateUser(id:number, user:User):Observable<void>{
-    return this.http.put<void>(`${this.myAppUrl}${this.myApiUrl}`,user)
+    return this.http.put<void>(`${this.myAppUrl}${this.myApiUrl}${id}`,user)
   }
 }
