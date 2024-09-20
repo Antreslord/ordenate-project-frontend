@@ -97,6 +97,7 @@ export class TableAreaComponent {
     const idUserJSON = JSON.parse(idUser)
     const idProject = Number(localStorage.getItem('id_project'))
 
+    
     const newActivity:Activity = {
       id_user: idUserJSON.id,
       id_project: idProject
