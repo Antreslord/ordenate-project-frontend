@@ -64,5 +64,6 @@ export class DashboardComponent {
 
   goToProject(index:number){
     this.projectChoseService.setInfoProject(this.listProjects[index])
+    this.router.navigate(['dashboard/project-area'])
   }
 }

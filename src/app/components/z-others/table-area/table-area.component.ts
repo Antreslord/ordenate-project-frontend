@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
 import { Activity } from 'src/app/shared/interfaces/activity';
 import { Project } from 'src/app/shared/interfaces/project';
@@ -44,7 +45,8 @@ export class TableAreaComponent {
   constructor(
     private _observableService: _ObservablesConnectionService,
     private _activityService:_ActivityService,
-    private _projectChoseService: projectChose
+    private _projectChoseService: projectChose,
+    private _toastr:ToastrService
   )
     {
     this.sendItemsActive = new EventEmitter()
@@ -82,10 +84,27 @@ export class TableAreaComponent {
   getListProjects(){
     this.subscriptionObservableService.add(this._projectChoseService.getInfoProject().subscribe((data) => {
       const project:any = data; 
+      localStorage.setItem('id_project',project.id)
       this._activityService.getListActivitiesByUserAndProject(project.id).subscribe((dataProject)=>{
         this.listActivities = dataProject
       })
     }))
+  }
+
+  addNewActivity(){
+
+    const idUser:any = localStorage.getItem('user')
+    const idUserJSON = JSON.parse(idUser)
+    const idProject = Number(localStorage.getItem('id_project'))
+
+    const newActivity:Activity = {
+      id_user: idUserJSON.id,
+      id_project: idProject
+    }
+
+    this._activityService.saveActivity(newActivity).subscribe(()=>{
+      this._toastr.success('La actividad se ha añadido correctamente', 'Actividad Agregada')
+    })
   }
 
 }
