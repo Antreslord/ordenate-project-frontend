@@ -82,13 +82,12 @@ export class TableAreaComponent {
   }
 
   getListProjects(){
-    this.subscriptionObservableService.add(this._projectChoseService.getInfoProject().subscribe((data) => {
-      const project:any = data; 
-      localStorage.setItem('id_project',project.id)
-      this._activityService.getListActivitiesByUserAndProject(project.id).subscribe((dataProject)=>{
-        this.listActivities = dataProject
-      })
-    }))
+
+    this._activityService.getListActivitiesByUserAndProject().subscribe((data)=>{
+      this.listActivities = data
+      this._toastr.success('Se han cargado todas las actividades', 'Lista Actualizada')
+    })
+
   }
 
   addNewActivity(){

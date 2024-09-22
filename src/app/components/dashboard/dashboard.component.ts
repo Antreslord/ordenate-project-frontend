@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { Project } from 'src/app/shared/interfaces/project';
+import { User } from 'src/app/shared/interfaces/user';
 import { _ObservablesConnectionService } from 'src/app/shared/services/observables-connection.service';
 import { _ProjectService } from 'src/app/shared/services/project.service';
 import { projectChose } from 'src/app/shared/services/project_chose.service';
+import { _UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,34 +17,51 @@ export class DashboardComponent {
   listProjects:Project[] = []
   //private subscriptionThemeSettings: Subscription
   
-  constructor(
-    private router:Router, 
-    private _connectionObservable: _ObservablesConnectionService, 
-    private _projectService:_ProjectService,
-    private projectChoseService:projectChose
-  ){
-    this.getListProjects()
-    this.theme = this.colorTheme()
-  }
-
   //abrir nueva ventana para un nuevo proyecto / open new window to make a new project
   pressButtonNewProject:boolean = false;
 
   //establece el color del ambiente
-  theme:boolean;
+  theme:boolean = false;
 
-  colorTheme():boolean{
-    const userInfo:any = localStorage.getItem('user');
-    const userJSON = JSON.parse(userInfo);
-    const { apareance } = userJSON
+  user:User;
 
-    return apareance
+  constructor(
+    private router:Router, 
+    private _projectService:_ProjectService,
+    private projectChoseService:projectChose,
+    private _userService: _UserService
+  ){
+    this.getListProjects()
+    this.user = this.getInfoUser()
   }
 
   getListProjects(){
     this._projectService.getListProjectsByUserId().subscribe((data) => {
       this.listProjects = data
     })
+  }
+
+  getInfoUser(){
+
+    const userInfo = this._userService.returnInfo()
+
+    const user:User = {
+      id: userInfo?.id,
+      name: userInfo?.name,
+      lastname: userInfo?.lastname,
+      profession: userInfo?.profession,
+      photo_user: userInfo?.photo_user,
+      email: userInfo?.email,
+      apareance: userInfo?.apareance
+    }
+
+    if(user.apareance == 1){
+      this.theme = true
+    }else{
+      this.theme = false
+    }
+
+    return user
   }
 
   goToSettings(){
@@ -63,7 +81,12 @@ export class DashboardComponent {
   }
 
   goToProject(index:number){
+    this._projectService.setProjectInLocalStorage(this.listProjects[index])
+    this.router.navigate([`dashboard/project-area/${index}`])
+  }
+
+  /*goToProject(index:number){
     this.projectChoseService.setInfoProject(this.listProjects[index])
     this.router.navigate(['dashboard/project-area'])
-  }
+  }*/
 }

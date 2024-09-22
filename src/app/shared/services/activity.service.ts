@@ -3,6 +3,10 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { Activity } from "../interfaces/activity";
+import { _UserService } from "./user.service";
+import { _ProjectService } from "./project.service";
+import { User } from "../interfaces/user";
+import { Project } from "../interfaces/project";
 
 @Injectable({
     providedIn: 'root'
@@ -13,20 +17,28 @@ export class _ActivityService {
     private myAppUrl:string
     private myApiUrl:string
 
-    constructor(private http:HttpClient){
+    private getActivityLocalStorage:any;
+    private activityJSON;
+
+    constructor(private http:HttpClient, private _userService: _UserService, private _projectService: _ProjectService){
         this.myAppUrl = environment.endpoint
         this.myApiUrl = 'api/activity/'
+
+        this.getActivityLocalStorage = localStorage.getItem('activity')
+        this.activityJSON = JSON.parse(this.getActivityLocalStorage)
     }
 
     getListActivities():Observable<Activity[]>{
         return this.http.get<Activity[]>(`${this.myAppUrl}${this.myApiUrl}`)
     }
 
-    getListActivitiesByUserAndProject(id_project:number):Observable<Activity[]>{
-        const userStorage: any = localStorage.getItem('user')
-        const userJSON = JSON.parse(userStorage)
-        const userId:number = Number(userJSON.id)
-        return this.http.get<Activity[]>(`${this.myAppUrl}${this.myApiUrl}activities/${userId}/${id_project}`)
+    getListActivitiesByUserAndProject():Observable<Activity[]>{
+
+        const user:User = this._userService.returnInfo()
+
+        const project:Project = this._projectService.returnInfo()
+
+        return this.http.get<Activity[]>(`${this.myAppUrl}${this.myApiUrl}activities/${user.id}/${project.id}`)
     }
 
     getActivity(id: number):Observable<Activity>{

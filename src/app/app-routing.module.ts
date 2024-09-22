@@ -24,7 +24,7 @@ const routes: Routes = [
       { path:'workTeam', component:WorkTeamsComponent, canActivate: [authGuard] },
       { path:'calendar',component:CalendarComponent, canActivate: [authGuard] },
       { path:'trash', component:TrashComponent, canActivate: [authGuard] },
-      { path:'project-area', component:ProjectAreaComponent, canActivate: [authGuard] }
+      { path:'project-area/:id', component:ProjectAreaComponent, canActivate: [authGuard] }
     ]
   
   }

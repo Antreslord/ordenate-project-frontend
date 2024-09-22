@@ -36,12 +36,14 @@ export class LoginComponent {
 
     this._userService.login(user).subscribe({
       next:(token) => {
+        
+        this._userService.findUserByEmail(user.email).subscribe((data)=> {
+          this._userService.addUserLocalStorage(data)
+        })
+
         localStorage.setItem('token', token)
         this.router.navigate(['dashboard/projects'])
-
-        this._userService.findUserByEmail(user.email).subscribe((data)=> {
-          localStorage.setItem('user', JSON.stringify(data))
-        })
+        
       },
       error: (e: HttpErrorResponse) => {
 
